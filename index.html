@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FuelFlow: Sports Nutrition for Athletes</title>
+<meta name="description" content="FuelFlow is a sports nutrition app built for athletes. Personalized calorie and macro targets, AI meal plans, photo food logging, and an AI nutrition coach, planned around your training and competitions.">
+<link rel="stylesheet" href="guides.css">
+<style>
+  .hero {
+    text-align: center;
+    padding: 24px 0 8px;
+  }
+  .hero h1 {
+    font-size: 2.6em;
+    margin-bottom: 0.2em;
+  }
+  .hero .tagline {
+    font-size: 1.2em;
+    color: var(--muted);
+    margin: 0 auto 1.2em;
+    max-width: 560px;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 1em;
+  }
+  .feature-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .feature-card h3 {
+    margin-top: 0;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 2px 10px;
+    margin-bottom: 8px;
+  }
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+  }
+  .steps li {
+    counter-increment: step;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 18px 14px 58px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 700;
+    text-align: center;
+    line-height: 26px;
+  }
+  .pricing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .price-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+  .price-card .price {
+    font-size: 1.8em;
+    font-weight: 700;
+  }
+  .footer-links {
+    margin-top: 3em;
+    padding-top: 1.5em;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.9em;
+  }
+  .footer-links a {
+    margin: 0 10px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <h1>FuelFlow</h1>
+  <p class="tagline">Sports nutrition built for athletes. Personalized targets, AI meal plans, and an AI coach, all planned around your training and competitions.</p>
+  <a class="button" href="support.html">Coming soon to the App Store</a>
+</div>
+
+<h2>Built around your schedule</h2>
+<p>Most nutrition apps are made for weight loss. FuelFlow is made for performance. Tell it your sport, how often you train, and when you compete, and it sets daily calorie and macro targets to match. Add a tournament, game, or race, and FuelFlow helps you fuel for the days leading up to it.</p>
+
+<h2>Features</h2>
+<div class="features">
+  <div class="feature-card">
+    <span class="badge">Free</span>
+    <h3>Track the basics</h3>
+    <ul>
+      <li>Food logging and food search</li>
+      <li>Personalized calorie and macro targets</li>
+      <li>Weight and sleep tracking</li>
+      <li>Progress charts</li>
+    </ul>
+  </div>
+  <div class="feature-card">
+    <span class="badge">Premium</span>
+    <h3>Your AI nutrition team</h3>
+    <ul>
+      <li>AI meal plans and recipes</li>
+      <li>Photo food recognition</li>
+      <li>Restaurant and menu suggestions</li>
+      <li>AI nutrition coach chat</li>
+      <li>Adaptive calorie suggestions</li>
+    </ul>
+  </div>
+</div>
+
+<h2>How it works</h2>
+<ol class="steps">
+  <li><strong>Tell FuelFlow about you:</strong> your sport, training, goals, and food preferences.</li>
+  <li><strong>Get your targets:</strong> daily calories, protein, carbs, and fat built for how you train.</li>
+  <li><strong>Hit them every day:</strong> with meal plans, quick food logging, and a coach you can ask anything.</li>
+</ol>
+
+<h2>Pricing</h2>
+<div class="pricing">
+  <div class="price-card">
+    <h3>Free</h3>
+    <div class="price">$0</div>
+    <p>Food logging, targets, weight and sleep tracking, and progress charts.</p>
+  </div>
+  <div class="price-card">
+    <h3>Premium Monthly</h3>
+    <div class="price">$9.99<span style="font-size:0.5em;font-weight:400"> / month</span></div>
+    <p>All AI features. 1-week free trial.</p>
+  </div>
+  <div class="price-card">
+    <h3>Premium Yearly</h3>
+    <div class="price">$79.99<span style="font-size:0.5em;font-weight:400"> / year</span></div>
+    <p>All AI features, about 33% less than monthly. 1-week free trial.</p>
+  </div>
+</div>
+<p style="color:var(--muted);font-size:0.85em;text-align:center;">Prices shown in US dollars. Subscriptions renew automatically unless canceled at least 24 hours before the end of the current period, and can be managed in your Apple Account settings.</p>
+
+<h2>Free nutrition guides</h2>
+<p>New to sports nutrition? Start with our free guides on what to eat before games, after workouts, at tournaments, and more.</p>
+<a class="button" href="guides.html">Browse the guides</a>
+
+<p class="disclaimer">FuelFlow provides general nutrition information and AI-generated suggestions for healthy athletes. It isn't a substitute for advice from a doctor or registered dietitian. FuelFlow is intended for users 13 and older.</p>
+
+<div class="footer-links">
+  <a href="guides.html">Guides</a>
+  <a href="support.html">Support</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+</div>
+
+</div>
+</body>
+</html>
