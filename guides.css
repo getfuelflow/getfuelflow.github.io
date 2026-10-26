@@ -1,53 +1,78 @@
 :root {
-  --bg: #ffffff;
-  --text: #1a1a1a;
-  --muted: #555555;
+  --bg: #f6f7f5;
+  --card: #ffffff;
+  --text: #1c2321;
+  --muted: #5b6663;
   --accent: #0f766e;
-  --border: #e5e5e5;
-  --card: #f5f7f7;
+  --accent-2: #14967f;
+  --accent-soft: #e3f1ee;
+  --border: #e4e7e4;
+  --shadow: 0 1px 2px rgba(16, 24, 22, 0.04), 0 6px 18px rgba(16, 24, 22, 0.06);
+  --shadow-hover: 0 2px 4px rgba(16, 24, 22, 0.05), 0 12px 28px rgba(16, 24, 22, 0.10);
+  --on-accent: #ffffff;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #12181a;
-    --text: #f0f0f0;
-    --muted: #aaaaaa;
-    --accent: #5eead4;
-    --border: #2a3336;
-    --card: #1b2326;
+    --bg: #111716;
+    --card: #1a2220;
+    --text: #ecf1ef;
+    --muted: #9aa7a3;
+    --accent: #4fb7a6;
+    --accent-2: #3aa08f;
+    --accent-soft: #1d2f2b;
+    --border: #26302d;
+    --shadow: none;
+    --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --on-accent: #ffffff;
   }
+}
+
+* {
+  box-sizing: border-box;
 }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.65;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
 }
 .container {
-  max-width: 720px;
+  max-width: 740px;
   margin: 0 auto;
-  padding: 48px 24px 80px;
+  padding: 48px 22px 80px;
 }
-.back {
-  display: inline-block;
-  margin-bottom: 1.5em;
-  font-size: 0.9em;
-}
+
+/* Text */
 h1 {
-  font-size: 2em;
-  line-height: 1.2;
-  margin-bottom: 0.3em;
+  font-size: 2.2em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35em;
 }
 h2 {
-  font-size: 1.25em;
-  margin-top: 2em;
-  color: var(--accent);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0.3em;
+  font-size: 1.3em;
+  letter-spacing: -0.01em;
+  margin: 2.2em 0 0.6em;
+  padding-left: 14px;
+  border-left: 4px solid var(--accent);
+  line-height: 1.3;
+}
+h3 {
+  letter-spacing: -0.01em;
 }
 .intro {
   color: var(--muted);
-  font-size: 1.05em;
+  font-size: 1.1em;
+}
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--accent-2);
 }
 ul {
   padding-left: 1.3em;
@@ -55,34 +80,68 @@ ul {
 li {
   margin-bottom: 0.5em;
 }
-.tip {
-  background: var(--card);
-  border-left: 4px solid var(--accent);
-  border-radius: 8px;
-  padding: 14px 18px;
-  margin: 1.5em 0;
+li::marker {
+  color: var(--accent);
 }
+
+/* Back link */
+.back {
+  display: inline-block;
+  margin-bottom: 1.6em;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Tip box */
+.tip {
+  background: var(--accent-soft);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 1.6em 0;
+}
+.tip strong {
+  color: var(--accent);
+}
+
+/* Call to action */
 .cta {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 20px;
+  padding: 28px 24px;
   margin-top: 3em;
   text-align: center;
+  box-shadow: var(--shadow);
 }
 .cta h3 {
   margin-top: 0;
+  font-size: 1.25em;
 }
+.cta p {
+  color: var(--muted);
+}
+
+/* Buttons */
 .button {
   display: inline-block;
-  background: var(--accent);
-  color: var(--bg);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--on-accent);
   font-weight: 700;
-  padding: 12px 22px;
-  border-radius: 12px;
+  padding: 13px 26px;
+  border-radius: 14px;
   text-decoration: none;
   margin-top: 8px;
+  box-shadow: 0 6px 18px rgba(15, 118, 110, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+.button:hover {
+  color: var(--on-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.32);
+}
+
+/* Guide list cards */
 .guide-list {
   list-style: none;
   padding: 0;
@@ -90,13 +149,27 @@ li {
 .guide-list li {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px 18px;
+  border-radius: 16px;
+  padding: 18px 20px;
   margin-bottom: 12px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.guide-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+.guide-list li::marker {
+  content: none;
 }
 .guide-list a {
   font-weight: 700;
+  font-size: 1.05em;
   text-decoration: none;
+  color: var(--text);
+}
+.guide-list a:hover {
+  color: var(--accent);
 }
 .guide-list p {
   margin: 4px 0 0;
@@ -105,18 +178,27 @@ li {
 }
 .section-label {
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.8em;
-  color: var(--muted);
-  margin-top: 2em;
+  letter-spacing: 0.1em;
+  font-size: 0.78em;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 2.2em;
 }
+
+/* Homepage cards (features and pricing) */
+.feature-card,
+.price-card {
+  box-shadow: var(--shadow);
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 18px !important;
+}
+
+/* Footer */
 .disclaimer {
   margin-top: 3em;
   padding-top: 1.5em;
   border-top: 1px solid var(--border);
   color: var(--muted);
   font-size: 0.85em;
-}
-a {
-  color: var(--accent);
 }
