@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athlete Fuel Calculator: Daily Calories, Protein and Hydration | FuelFlow</title>
+<meta name="description" content="Free athlete fuel calculator. Get daily calorie, protein, and hydration ranges based on your sport and training, built for fueling performance.">
+<link rel="stylesheet" href="guides.css">
+</head>
+<body>
+<header class="site-header"><div class="site-header-inner"><a class="site-brand" href="index.html">FuelFlow</a><nav class="site-nav" aria-label="Main"><a href="guides.html">Guides</a><a href="calculator.html">Calculator</a><a href="about.html">About</a><a href="support.html">Support</a></nav></div></header>
+<div class="container">
+
+<h1>Athlete Fuel Calculator</h1>
+<p class="intro">Get a starting range for daily calories, protein, and hydration based on your body and your training. Built for fueling performance.</p>
+
+<form class="calc-form" id="calc" novalidate>
+  <div class="calc-grid">
+    <div class="calc-field">
+      <label for="age">Age</label>
+      <input id="age" type="number" inputmode="numeric" min="1" max="100" step="1" required>
+    </div>
+    <div class="calc-field">
+      <label for="sex">Sex</label>
+      <select id="sex">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+
+    <div class="calc-field">
+      <span class="label">Height</span>
+      <div class="unit-toggle" role="group" aria-label="Height units">
+        <button type="button" id="h-imp" aria-pressed="true">ft / in</button>
+        <button type="button" id="h-met" aria-pressed="false">cm</button>
+      </div>
+      <div class="calc-row" id="h-imp-fields">
+        <input id="ft" type="number" inputmode="numeric" min="0" max="8" placeholder="ft" aria-label="Feet">
+        <input id="in" type="number" inputmode="decimal" min="0" max="11.9" step="0.5" placeholder="in" aria-label="Inches">
+      </div>
+      <div class="calc-row" id="h-met-fields" hidden>
+        <input id="cm" type="number" inputmode="decimal" min="0" placeholder="cm" aria-label="Height in centimeters">
+      </div>
+    </div>
+
+    <div class="calc-field">
+      <span class="label">Weight</span>
+      <div class="unit-toggle" role="group" aria-label="Weight units">
+        <button type="button" id="w-lb" aria-pressed="true">lb</button>
+        <button type="button" id="w-kg" aria-pressed="false">kg</button>
+      </div>
+      <input id="weight" type="number" inputmode="decimal" min="0" step="0.1" aria-label="Weight" placeholder="lb">
+    </div>
+
+    <div class="calc-field">
+      <label for="sport">Sport</label>
+      <select id="sport">
+        <option>Soccer</option>
+        <option>Basketball</option>
+        <option>Swimming</option>
+        <option>Track and field</option>
+        <option>Distance running</option>
+        <option>Tennis</option>
+        <option>Strength training</option>
+        <option>Football</option>
+        <option>Baseball / Softball</option>
+        <option>Volleyball</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="calc-field">
+      <label for="hours">Training hours per week</label>
+      <input id="hours" type="number" inputmode="decimal" min="0" max="40" step="0.5" required>
+    </div>
+  </div>
+  <button class="button" type="submit">Calculate my ranges</button>
+</form>
+
+<div class="calc-message" id="msg" role="alert" hidden></div>
+
+<div class="calc-results" id="results" aria-live="polite" hidden>
+  <div class="result-card">
+    <h3>Daily calories</h3>
+    <div class="range" id="r-cal"></div>
+    <p>A starting range for your sport and training load. Appetite, growth, and training changes all matter.</p>
+  </div>
+  <div class="result-card">
+    <h3>Daily protein</h3>
+    <div class="range" id="r-pro"></div>
+    <p>1.2 to 2.0 g per kg of body weight, spread across meals and snacks.</p>
+  </div>
+  <div class="result-card">
+    <h3>Hydration</h3>
+    <div class="range" style="font-size:1.1em">Drink regularly through the day</div>
+    <p>Drink more on training and game days, and more in heat. Check: pale yellow urine is a good sign.</p>
+  </div>
+</div>
+
+<p class="disclaimer">This calculator gives general information for healthy athletes. It isn't medical advice. Teens' needs vary with growth and development, so check with a doctor or registered dietitian, especially if you have a medical condition or concerns about eating or growth.</p>
+
+<div class="cta">
+  <h3>Get a full plan in FuelFlow</h3>
+  <p>Turn these ranges into daily targets, meal plans, and an AI coach planned around your training schedule.</p>
+  <a class="button" href="support.html">Get a full plan in FuelFlow</a>
+</div>
+
+</div>
+<script>
+(function () {
+  var state = { height: 'imp', weight: 'lb' };
+  var $ = function (id) { return document.getElementById(id); };
+
+  function setPressed(on, off) {
+    $(on).setAttribute('aria-pressed', 'true');
+    $(off).setAttribute('aria-pressed', 'false');
+  }
+  function setHeight(mode) {
+    state.height = mode;
+    setPressed(mode === 'imp' ? 'h-imp' : 'h-met', mode === 'imp' ? 'h-met' : 'h-imp');
+    $('h-imp-fields').hidden = mode !== 'imp';
+    $('h-met-fields').hidden = mode !== 'met';
+  }
+  function setWeight(mode) {
+    state.weight = mode;
+    setPressed(mode === 'lb' ? 'w-lb' : 'w-kg', mode === 'lb' ? 'w-kg' : 'w-lb');
+    $('weight').placeholder = mode;
+  }
+  $('h-imp').onclick = function () { setHeight('imp'); };
+  $('h-met').onclick = function () { setHeight('met'); };
+  $('w-lb').onclick = function () { setWeight('lb'); };
+  $('w-kg').onclick = function () { setWeight('kg'); };
+
+  function activityFactor(h) {
+    if (h < 3) return 1.375;
+    if (h < 6) return 1.55;
+    if (h < 10) return 1.725;
+    return 1.9;
+  }
+  function roundTo(n, step) { return Math.round(n / step) * step; }
+  function fmt(n) { return n.toLocaleString('en-US'); }
+
+  function show(text) {
+    $('msg').textContent = text;
+    $('msg').hidden = false;
+    $('results').hidden = true;
+  }
+
+  $('calc').addEventListener('submit', function (e) {
+    e.preventDefault();
+    $('msg').hidden = true;
+
+    var age = parseFloat($('age').value);
+    if (!isFinite(age)) { return show('Please enter your age.'); }
+    if (age < 13) {
+      return show("Thanks for stopping by! FuelFlow and this calculator are for athletes 13 and older. Talk with a parent, doctor, or registered dietitian about what's right for you right now.");
+    }
+    if (age > 100) { return show('Please enter a valid age.'); }
+
+    var cm;
+    if (state.height === 'imp') {
+      var ft = parseFloat($('ft').value) || 0;
+      var inch = parseFloat($('in').value) || 0;
+      cm = (ft * 12 + inch) * 2.54;
+    } else {
+      cm = parseFloat($('cm').value);
+    }
+    var w = parseFloat($('weight').value);
+    var kg = state.weight === 'lb' ? w / 2.20462 : w;
+    var hours = parseFloat($('hours').value);
+
+    if (!isFinite(cm) || cm < 100 || cm > 230) { return show('Please enter a valid height.'); }
+    if (!isFinite(kg) || kg < 30 || kg > 200) { return show('Please enter a valid weight.'); }
+    if (!isFinite(hours) || hours < 0 || hours > 40) { return show('Please enter your weekly training hours (0 to 40).'); }
+
+    // Mifflin-St Jeor
+    var bmr = 10 * kg + 6.25 * cm - 5 * age + ($('sex').value === 'male' ? 5 : -161);
+    var tdee = bmr * activityFactor(hours);
+
+    $('r-cal').textContent = fmt(roundTo(tdee * 0.9, 50)) + ' to ' + fmt(roundTo(tdee * 1.1, 50)) + ' kcal';
+    $('r-pro').textContent = Math.round(kg * 1.2) + ' to ' + Math.round(kg * 2.0) + ' g';
+    $('results').hidden = false;
+  });
+})();
+</script>
+</body>
+</html>
