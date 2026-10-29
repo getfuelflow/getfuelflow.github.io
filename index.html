@@ -1,191 +1,323 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="bx3BuDIDkNec5Eu7X6UhM0aLV_zB5sMBcz6fstju_84" />
 <title>FuelFlow: Sports Nutrition for Athletes</title>
 <meta name="description" content="FuelFlow is a sports nutrition app built for athletes. Personalized calorie and macro targets, AI meal plans, photo food logging, and an AI nutrition coach, planned around your training and competitions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="guides.css">
-<style>
-  .hero {
-    text-align: center;
-    padding: 24px 0 8px;
-  }
-  .hero h1 {
-    font-size: 2.6em;
-    margin-bottom: 0.2em;
-  }
-  .hero .tagline {
-    font-size: 1.2em;
-    color: var(--muted);
-    margin: 0 auto 1.2em;
-    max-width: 560px;
-  }
-  .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-    margin-top: 1em;
-  }
-  .feature-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px;
-  }
-  .feature-card h3 {
-    margin-top: 0;
-  }
-  .badge {
-    display: inline-block;
-    font-size: 0.75em;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    padding: 2px 10px;
-    margin-bottom: 8px;
-  }
-  .steps {
-    counter-reset: step;
-    list-style: none;
-    padding: 0;
-  }
-  .steps li {
-    counter-increment: step;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 18px 14px 58px;
-    position: relative;
-    margin-bottom: 12px;
-  }
-  .steps li::before {
-    content: counter(step);
-    position: absolute;
-    left: 18px;
-    top: 14px;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: var(--bg);
-    font-weight: 700;
-    text-align: center;
-    line-height: 26px;
-  }
-  .pricing {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-  }
-  .price-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-  }
-  .price-card .price {
-    font-size: 1.8em;
-    font-weight: 700;
-  }
-  .footer-links {
-    margin-top: 3em;
-    padding-top: 1.5em;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    font-size: 0.9em;
-  }
-  .footer-links a {
-    margin: 0 10px;
-  }
-</style>
+<link rel="stylesheet" href="home.css">
+<script>document.documentElement.className = "";</script>
 </head>
-<body>
+<body class="home">
 <header class="site-header"><div class="site-header-inner"><a class="site-brand" href="index.html">FuelFlow</a><nav class="site-nav" aria-label="Main"><a href="guides.html">Guides</a><a href="calculator.html">Calculator</a><a href="about.html">About</a><a href="support.html">Support</a></nav></div></header>
-<div class="container">
 
-<div class="hero">
-  <h1>FuelFlow</h1>
-  <p class="tagline">Sports nutrition built for athletes. Personalized targets, AI meal plans, and an AI coach, all planned around your training and competitions.</p>
-  <a class="button" href="support.html">Coming soon to the App Store</a>
-</div>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow">Sports nutrition app</span>
+      <h1>Fuel like the athlete <span>you're becoming.</span></h1>
+      <p class="sub">Personalized targets, AI meal plans, and an AI coach, planned around your training and competitions.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="support.html">Coming soon to the App Store</a>
+        <a class="btn btn-secondary" href="calculator.html">Try the free calculator</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="app-card card-back" src="images/plans.png" alt="FuelFlow meal plan screen showing a day of planned meals" width="900" height="1607" decoding="async">
+      <img class="app-card card-main" src="images/today.png" alt="FuelFlow Today screen showing daily calorie and macro progress" width="900" height="1266" decoding="async">
+    </div>
+  </div>
+</section>
 
-<h2>Built around your schedule</h2>
-<p>Most nutrition apps are made for weight loss. FuelFlow is made for performance. Tell it your sport, how often you train, and when you compete, and it sets daily calorie and macro targets to match. Add a tournament, game, or race, and FuelFlow helps you fuel for the days leading up to it.</p>
+<section class="sports" aria-labelledby="sports-title">
+  <div class="wrap">
+    <h2 class="sports-label" id="sports-title" style="font-size:1rem;letter-spacing:0">Built for every sport</h2>
+    <ul class="sports-row">
+    <li><span class="sport-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><ellipse cx="10" cy="9" rx="5.5" ry="7" transform="rotate(-35 10 9)"/><path d="M14.5 14l6 6M6.5 6.5l6 6"/></svg></span>Tennis</li>
+    <li><span class="sport-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.5 2.5-1.3 4h-4.4l-1.3-4z"/><path d="M12 8V3M15.5 10.5L20 9M14.2 14.5l3 3.8M9.8 14.5l-3 3.8M8.5 10.5L4 9"/></svg></span>Soccer</li>
+    <li><span class="sport-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6c3 3 3 9.8 0 12.8M18.4 5.6c-3 3-3 9.8 0 12.8"/></svg></span>Basketball</li>
+    <li><span class="sport-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="17" cy="6" r="2"/><path d="M4 12l5-3 4 2 2-3"/><path d="M3 16c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0M3 20c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0"/></svg></span>Swimming</li>
+    <li><span class="sport-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="14" cy="4.5" r="2"/><path d="M12 9l-3 4 3 2 1 5M12 9l4 2 2-1M9 13l-3 1M13 15l3 2"/></svg></span>Running</li>
+    <li><span class="sport-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 7v10M3 10v4M18 7v10M21 10v4M6 12h12"/></svg></span>Strength</li>
+    </ul>
+  </div>
+</section>
 
-<h2>Features</h2>
-<div class="features">
-  <div class="feature-card">
-    <span class="badge">Free</span>
-    <h3>Track the basics</h3>
-    <ul>
-      <li>Food logging and food search</li>
+<section class="section" id="features" style="padding-top:40px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Everything you need to fuel your training</h2>
+      <p>From planning your week to logging a snack between games.</p>
+    </div>
+  <div class="feature reveal">
+    <div class="feature-text">
+      <div class="feature-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16M8 14h4"/></svg></div>
+      <h3>AI meal plans and recipes</h3>
+      <p>Get meal plans built around your sport, your training days, and your food preferences. Every plan comes with recipes so you know exactly what to make.</p>
+      <ul class="checks">
+        <li>Plans that match your daily targets</li>
+        <li>Recipes for every meal</li>
+        <li>Built around training and game days</li>
+      </ul>
+    </div>
+    <div class="feature-media">
+      <img class="app-card" src="images/plans.png" alt="FuelFlow AI meal plan screen with meals for the day" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+  <div class="feature flip reveal">
+    <div class="feature-text">
+      <div class="feature-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></div>
+      <h3>Search and log food in seconds</h3>
+      <p>Find foods fast and log them with a few taps. See your calories and macros add up so you always know where you stand.</p>
+      <ul class="checks">
+        <li>Quick food search</li>
+        <li>Photo food recognition with Premium</li>
+        <li>Calories and macros at a glance</li>
+      </ul>
+    </div>
+    <div class="feature-media">
+      <img class="app-card" src="images/food.png" alt="FuelFlow food search and logging screen" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+  <div class="feature reveal">
+    <div class="feature-text">
+      <div class="feature-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5h14a2 2 0 012 2v8a2 2 0 01-2 2h-7l-5 4v-4H5a2 2 0 01-2-2V7a2 2 0 012-2z"/><path d="M8 10h8M8 13h5"/></svg></div>
+      <h3>An AI coach you can ask anything</h3>
+      <p>Ask what to eat before practice, how to recover after a tournament, or what to order at a restaurant. Your coach answers with your sport and goals in mind.</p>
+      <ul class="checks">
+        <li>Ask questions any time</li>
+        <li>Restaurant and menu suggestions</li>
+        <li>General information, not medical advice</li>
+      </ul>
+    </div>
+    <div class="feature-media">
+      <img class="app-card" src="images/coach.png" alt="FuelFlow AI nutrition coach chat screen" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+  <div class="feature flip reveal">
+    <div class="feature-text">
+      <div class="feature-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 16V11a6 6 0 0112 0v5l1.5 2h-15z"/><path d="M10 21h4"/></svg></div>
+      <h3>Personalized tips every day</h3>
+      <p>FuelFlow keeps you on track with tips that fit your day. Know what to do before you train and how to recover after.</p>
+      <ul class="checks">
+        <li>When to eat before training</li>
+        <li>How much protein is left today</li>
+        <li>Recovery reminders</li>
+      </ul>
+    </div>
+    <div class="feature-media wide">
+      <img class="app-card" src="images/for-you.png" alt="FuelFlow For You screen with personalized daily nutrition tips" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+  </div>
+</section>
+
+<section class="section why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Why athletes choose FuelFlow</h2>
+    </div>
+    <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="feature-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></svg></div>
+      <h3>Built for performance, not dieting</h3>
+      <p>FuelFlow helps you eat enough to train, compete, and recover. It's about fueling your sport, not crash dieting.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="feature-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16M8 14h4"/></svg></div>
+      <h3>Plans around your real schedule</h3>
+      <p>Practice days, double sessions, tournaments, and rest days all need different fuel. FuelFlow plans for each one.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="feature-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9" rx="3"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></div>
+      <h3>Private by design</h3>
+      <p>We don't sell your data or use it for ads. Your information is used to run the app and nothing else.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Simple pricing</h2>
+      <p>Start free. Upgrade when you want the AI features.</p>
+    </div>
+    <div class="price-grid">
+    <div class="plan reveal">
+      
+      <h3>Free</h3>
+      <div class="amount">$0<small></small></div>
+      <p class="plan-note">Track the basics, no cost.</p>
+      <ul class="checks">
+      <li>Food logging and search</li>
       <li>Personalized calorie and macro targets</li>
       <li>Weight and sleep tracking</li>
       <li>Progress charts</li>
-    </ul>
-  </div>
-  <div class="feature-card">
-    <span class="badge">Premium</span>
-    <h3>Your AI nutrition team</h3>
-    <ul>
+      </ul>
+    </div>
+    <div class="plan reveal">
+      
+      <h3>Premium Monthly</h3>
+      <div class="amount">$9.99<small> / month</small></div>
+      <p class="plan-note">All AI features. 1-week free trial.</p>
+      <ul class="checks">
       <li>AI meal plans and recipes</li>
       <li>Photo food recognition</li>
       <li>Restaurant and menu suggestions</li>
-      <li>AI nutrition coach chat</li>
+      <li>AI nutrition coach</li>
       <li>Adaptive calorie suggestions</li>
-    </ul>
+      <li>1-week free trial</li>
+      </ul>
+    </div>
+    <div class="plan best reveal">
+      <span class="badge-best">Best value</span>
+      <h3>Premium Yearly</h3>
+      <div class="amount">$79.99<small> / year</small></div>
+      <p class="plan-note">All AI features, about 33% less than monthly.</p>
+      <ul class="checks">
+      <li>AI meal plans and recipes</li>
+      <li>Photo food recognition</li>
+      <li>Restaurant and menu suggestions</li>
+      <li>AI nutrition coach</li>
+      <li>Adaptive calorie suggestions</li>
+      <li>1-week free trial</li>
+      </ul>
+    </div>
+    </div>
+    <p class="price-fine">Prices shown in US dollars. Subscriptions renew automatically unless canceled at least 24 hours before the end of the current period, and can be managed in your Apple Account settings.</p>
   </div>
-</div>
+</section>
 
-<h2>How it works</h2>
-<ol class="steps">
-  <li><strong>Tell FuelFlow about you:</strong> your sport, training, goals, and food preferences.</li>
-  <li><strong>Get your targets:</strong> daily calories, protein, carbs, and fat built for how you train.</li>
-  <li><strong>Hit them every day:</strong> with meal plans, quick food logging, and a coach you can ask anything.</li>
-</ol>
-
-<h2>Pricing</h2>
-<div class="pricing">
-  <div class="price-card">
-    <h3>Free</h3>
-    <div class="price">$0</div>
-    <p>Food logging, targets, weight and sleep tracking, and progress charts.</p>
+<section class="calc-banner">
+  <div class="wrap reveal">
+    <h2>How much should you be eating?</h2>
+    <p>Get your daily calorie, protein, and hydration ranges in 30 seconds.</p>
+    <a class="btn btn-light" href="calculator.html">Try the free calculator</a>
   </div>
-  <div class="price-card">
-    <h3>Premium Monthly</h3>
-    <div class="price">$9.99<span style="font-size:0.5em;font-weight:400"> / month</span></div>
-    <p>All AI features. 1-week free trial.</p>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Popular guides</h2>
+      <p>Simple, practical nutrition for game day and every day.</p>
+    </div>
+    <div class="guide-cards">
+    <a class="guide-card g1 reveal" href="soccer-game-day-nutrition.html">
+      <span class="sport-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.5 2.5-1.3 4h-4.4l-1.3-4z"/><path d="M12 8V3M15.5 10.5L20 9M14.2 14.5l3 3.8M9.8 14.5l-3 3.8M8.5 10.5L4 9"/></svg></span>
+      <h3>Soccer Game Day Nutrition</h3>
+      <p>What to eat before, during, and after a match.</p>
+      <span class="more">Read the guide &rarr;</span>
+    </a>
+    <a class="guide-card g2 reveal" href="what-to-eat-after-a-workout.html">
+      <span class="sport-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="14" cy="4.5" r="2"/><path d="M12 9l-3 4 3 2 1 5M12 9l4 2 2-1M9 13l-3 1M13 15l3 2"/></svg></span>
+      <h3>What to Eat After a Workout</h3>
+      <p>The best recovery foods and when to eat them.</p>
+      <span class="more">Read the guide &rarr;</span>
+    </a>
+    <a class="guide-card g3 reveal" href="best-snacks-for-tournaments.html">
+      <span class="sport-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6c3 3 3 9.8 0 12.8M18.4 5.6c-3 3-3 9.8 0 12.8"/></svg></span>
+      <h3>Best Snacks for Tournaments</h3>
+      <p>Quick-energy snacks and mini meals for long days.</p>
+      <span class="more">Read the guide &rarr;</span>
+    </a>
+    </div>
+    <p class="see-all"><a href="guides.html">See all guides &rarr;</a></p>
   </div>
-  <div class="price-card">
-    <h3>Premium Yearly</h3>
-    <div class="price">$79.99<span style="font-size:0.5em;font-weight:400"> / year</span></div>
-    <p>All AI features, about 33% less than monthly. 1-week free trial.</p>
+</section>
+
+<section class="section" id="faq" style="padding-top:24px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq reveal">
+    <details>
+      <summary>What's free vs Premium?</summary>
+      <p>Free includes food logging and search, personalized calorie and macro targets, weight and sleep tracking, and progress charts. Premium adds AI meal plans and recipes, photo food recognition, restaurant and menu suggestions, the AI nutrition coach, and adaptive calorie suggestions.</p>
+    </details>
+    <details>
+      <summary>How does the free trial work?</summary>
+      <p>Premium Monthly and Premium Yearly both include a 1-week free trial for new subscribers, so you can try the AI features first. If you don't cancel at least 24 hours before the trial ends, your subscription starts automatically at the plan price.</p>
+    </details>
+    <details>
+      <summary>How do I cancel?</summary>
+      <p>Subscriptions are managed by Apple. On your iPhone or iPad, open Settings, tap your name, then Subscriptions, then FuelFlow. Cancel at least 24 hours before the end of the current period to avoid renewal.</p>
+    </details>
+    <details>
+      <summary>Is FuelFlow medical advice?</summary>
+      <p>No. FuelFlow provides general nutrition information for healthy athletes. It isn't a substitute for advice from a doctor or registered dietitian.</p>
+    </details>
+    <details>
+      <summary>Who is FuelFlow for?</summary>
+      <p>Athletes in every sport, ages 13 and older, on iPhone and iPad.</p>
+    </details>
+    </div>
   </div>
-</div>
-<p style="color:var(--muted);font-size:0.85em;text-align:center;">Prices shown in US dollars. Subscriptions renew automatically unless canceled at least 24 hours before the end of the current period, and can be managed in your Apple Account settings.</p>
+</section>
+</main>
 
-<h2>Free nutrition guides</h2>
-<p>New to sports nutrition? Start with our free guides on what to eat before games, after workouts, at tournaments, and more.</p>
-<a class="button" href="guides.html">Browse the guides</a>
-<a class="button" href="calculator.html">Try the fuel calculator</a>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">FuelFlow</p>
+        <p>Sports nutrition built for athletes. Fuel for performance, not dieting.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="calculator.html">Calculator</a></li>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="mailto:fuelflowsupport@gmail.com">fuelflowsupport@gmail.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 FuelFlow</div>
+  </div>
+</footer>
 
-<p class="disclaimer">FuelFlow provides general nutrition information and AI-generated suggestions for healthy athletes. It isn't a substitute for advice from a doctor or registered dietitian. FuelFlow is intended for users 13 and older.</p>
-
-<div class="footer-links">
-  <a href="guides.html">Guides</a>
-  <a href="calculator.html">Calculator</a>
-  <a href="about.html">About</a>
-  <a href="support.html">Support</a>
-  <a href="privacy-policy.html">Privacy Policy</a>
-  <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
-</div>
-
-</div>
+<script>
+(function () {
+  var els = document.querySelectorAll(".reveal");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) {
+    els.forEach(function (el) { el.classList.add("in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>
