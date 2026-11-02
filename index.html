@@ -11,26 +11,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="guides.css">
 <link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="hero.css">
 <script>document.documentElement.className = "";</script>
 </head>
 <body class="home">
 <header class="site-header"><div class="site-header-inner"><a class="site-brand" href="index.html">FuelFlow</a><nav class="site-nav" aria-label="Main"><a href="guides.html">Guides</a><a href="calculator.html">Calculator</a><a href="about.html">About</a><a href="support.html">Support</a></nav></div></header>
 
 <main>
-<section class="hero">
+<section class="hero hero-dark" data-parallax-root>
+  <div class="layer layer-bg" data-depth="0.15" aria-hidden="true"></div>
+  <img class="layer layer-athlete" data-depth="0.35" src="images/athlete.png" alt="" aria-hidden="true" decoding="async" onerror="this.remove()">
+  <div class="layer layer-streaks" data-depth="0.25" aria-hidden="true"></div>
   <div class="wrap hero-grid">
-    <div class="hero-text">
+    <div class="hero-text" data-depth="-0.08">
       <span class="eyebrow">Sports nutrition app</span>
-      <h1>Fuel like the athlete <span>you're becoming.</span></h1>
+      <h1>Fuel like the athlete you're becoming<span class="dot">.</span></h1>
       <p class="sub">Personalized targets, AI meal plans, and an AI coach, planned around your training and competitions.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="support.html">Coming soon to the App Store</a>
-        <a class="btn btn-secondary" href="calculator.html">Try the free calculator</a>
+        <a class="btn-store" href="support.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.9-.9-3.1-.8C6.8 7.3 5.3 8.3 4.5 9.8c-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.7 2.4 3 2.4 1.2 0 1.6-.8 3.1-.8s1.8.8 3.1.8c1.3 0 2.1-1.2 2.9-2.3.9-1.300 1.3-2.6 1.3-2.7 0 0-2.6-1-2.7-4.2zM14.1 5.5c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.6 2.8-1.3z"/></svg><span><small>Coming soon to the</small>App Store</span></a>
+        <a class="link-how" href="#features">See how it works</a>
       </div>
     </div>
     <div class="hero-visual">
-      <img class="app-card card-back" src="images/plans.png" alt="FuelFlow meal plan screen showing a day of planned meals" width="900" height="1607" decoding="async">
-      <img class="app-card card-main" src="images/today.png" alt="FuelFlow Today screen showing daily calorie and macro progress" width="900" height="1266" decoding="async">
+      <div class="phone phone-back" data-depth="0.5" data-tilt="10"><img src="images/plans.png" alt="FuelFlow meal plan screen showing a day of planned meals" decoding="async"></div>
+      <div class="phone phone-front" data-depth="0.9" data-tilt="22"><img src="images/today.png" alt="FuelFlow Today screen showing daily calorie and macro progress" decoding="async"></div>
+      <div class="chip chip-1" data-depth="1.2" data-tilt="34">Protein left today: <b>42 g</b></div>
+      <div class="chip chip-2" data-depth="1.05" data-tilt="28">Pre-practice snack in <b>1 hr</b></div>
     </div>
   </div>
 </section>
@@ -155,7 +161,6 @@
     </div>
     <div class="price-grid">
     <div class="plan reveal">
-      
       <h3>Free</h3>
       <div class="amount">$0<small></small></div>
       <p class="plan-note">Track the basics, no cost.</p>
@@ -167,7 +172,6 @@
       </ul>
     </div>
     <div class="plan reveal">
-      
       <h3>Premium Monthly</h3>
       <div class="amount">$9.99<small> / month</small></div>
       <p class="plan-note">All AI features. 1-week free trial.</p>
@@ -317,6 +321,36 @@
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
   els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<script>
+(function () {
+  var root = document.querySelector("[data-parallax-root]");
+  if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var items = Array.prototype.slice.call(root.querySelectorAll("[data-depth]"));
+  var fine = window.matchMedia("(pointer: fine)").matches;
+  var px = 0, py = 0, tx = 0, ty = 0, ticking = false;
+  function frame() {
+    ticking = false;
+    var y = window.scrollY;
+    if (y > root.offsetHeight * 1.2) return;
+    tx += (px - tx) * 0.08; ty += (py - ty) * 0.08;
+    items.forEach(function (el) {
+      var d = parseFloat(el.dataset.depth) || 0;
+      var t = parseFloat(el.dataset.tilt) || 0;
+      el.style.transform = "translate3d(" + (tx * t).toFixed(2) + "px," + (y * d * 0.35 + ty * t).toFixed(2) + "px,0)";
+    });
+    if (Math.abs(px - tx) > 0.001 || Math.abs(py - ty) > 0.001) request();
+  }
+  function request() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener("scroll", request, { passive: true });
+  if (fine) root.addEventListener("pointermove", function (e) {
+    var r = root.getBoundingClientRect();
+    px = (e.clientX - r.left) / r.width - 0.5;
+    py = (e.clientY - r.top) / r.height - 0.5;
+    request();
+  });
+  request();
 })();
 </script>
 </body>
