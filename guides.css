@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&display=swap");
+
 :root {
   --bg: #f6f7f5;
   --card: #ffffff;
@@ -180,15 +182,19 @@ li::marker {
   border-radius: 18px !important;
 }
 
-/* Site header */
+/* Site header (dark, matches the homepage hero) */
 .site-header {
-  background: var(--card);
-  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #081412;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: env(safe-area-inset-top, 0px);
 }
 .site-header-inner {
-  max-width: 740px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 14px 22px;
+  padding: 18px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -196,10 +202,11 @@ li::marker {
   flex-wrap: wrap;
 }
 .site-brand {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-weight: 800;
   font-size: 1.25em;
   letter-spacing: -0.02em;
-  color: var(--accent);
+  color: #f3f5f2;
   text-decoration: none;
 }
 .site-nav {
@@ -208,19 +215,26 @@ li::marker {
   gap: 4px 18px;
 }
 .site-nav a {
-  color: var(--muted);
+  color: #a9b8b4;
   font-size: 0.95em;
   font-weight: 600;
   text-decoration: none;
 }
 .site-nav a:hover,
+.site-nav a:focus-visible,
 .site-nav a[aria-current="page"] {
-  color: var(--accent);
+  color: #f3f5f2;
+}
+.site-header a:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 @media (max-width: 520px) {
   .site-header-inner {
     flex-direction: column;
     align-items: flex-start;
+    padding: 14px 20px;
   }
   .site-nav {
     gap: 4px 14px;
