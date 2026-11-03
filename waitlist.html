@@ -20,9 +20,6 @@
   --mint: #5eead4;
   --amber: #f59e0b;
   --err: #ff9b8a;
-  --carb: #f59e0b;
-  --prot: #5eead4;
-  --fat: #a5b4fc;
   --ease: cubic-bezier(.2, .8, .2, 1);
 }
 body.wl {
@@ -42,7 +39,7 @@ body.wl {
 .wl main a:hover, .wl .foot a:hover { color: #fff; }
 .wl :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
-section { position: relative; padding: 64px 0; }
+section { position: relative; padding: 42px 0; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
@@ -143,34 +140,30 @@ fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 .chip:hover span { border-color: var(--mint); color: var(--txt); }
 .chip input:checked + span { background: var(--mint); border-color: var(--mint); color: #04100e; transform: translateY(-1px); }
 .chip input:focus-visible + span { outline: 3px solid var(--amber); outline-offset: 3px; }
-.viz { display: grid; gap: 22px; align-items: center; justify-items: center; }
-.rings { position: relative; width: min(72vw, 260px); aspect-ratio: 1; }
-.rings svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-.rings circle { fill: none; stroke-linecap: round; stroke-width: 11; }
-.rings .bg { stroke: rgba(255, 255, 255, .08); }
-.rings .fg { transition: stroke-dashoffset 1s var(--ease); }
-.rings-center { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
-.rings-center b { font-family: "Plus Jakarta Sans", sans-serif; font-size: 2.3rem; line-height: 1; letter-spacing: -.03em; }
-.rings-center small { color: var(--dim); font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
-.plate { width: 100%; display: grid; gap: 10px; }
-.legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.legend div { padding: 10px; border-radius: 14px; background: rgba(255, 255, 255, .04); text-align: center; }
-.legend b { display: block; font-size: 1.15rem; font-family: "Plus Jakarta Sans", sans-serif; }
-.legend small { font-size: .74rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.legend .c small { color: var(--carb); } .legend .p small { color: var(--prot); } .legend .f small { color: var(--fat); }
-.meals { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.meals li {
-  margin: 0; display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 16px;
-  background: rgba(255, 255, 255, .05); border: 1px solid var(--line); animation: pop .5s var(--ease) both;
+.viz { display: grid; gap: 14px; align-content: start; }
+.example-flag {
+  display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-radius: 14px; font-weight: 800; font-size: .95rem;
+  color: #ffd98a; background: rgba(245, 158, 11, .14); border: 1.5px solid rgba(245, 158, 11, .6);
 }
-.meals li:nth-child(2) { animation-delay: .08s; } .meals li:nth-child(3) { animation-delay: .16s; } .meals li:nth-child(4) { animation-delay: .24s; }
-.meals .em { font-size: 1.5rem; }
-.meals small { display: block; color: var(--dim); }
-@keyframes pop { from { opacity: 0; transform: translateY(12px) scale(.97); } }
-.disclaimer { font-size: .8rem; color: var(--dim); margin: 14px 0 0; }
+.example-flag::before { content: "!"; flex: none; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--amber); color: #1a1100; font-size: .85rem; }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tile { padding: 14px 16px; border-radius: 22px; background: #1d1f1e; border: 1px solid rgba(255, 255, 255, .09); }
+.tile small { display: block; font-size: .85rem; font-weight: 600; color: var(--tc); }
+.tile b { display: block; font-family: "Plus Jakarta Sans", -apple-system, sans-serif; font-size: 1.55rem; line-height: 1.25; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.tile.cal, .tile.carb { --tc: #a9bcff; } .tile.prot { --tc: #7ee8cc; } .tile.fat { --tc: #f4d27c; }
+.meals { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.meal { margin: 0; padding: 14px 16px; border-radius: 20px; background: #1d1f1e; border: 1px solid rgba(255, 255, 255, .1); }
+.meal.swap { animation: pop .45s var(--ease) both; }
+.tag { display: inline-block; padding: 3px 10px; border-radius: 8px; font-size: .74rem; font-weight: 800; letter-spacing: .1em; color: var(--mc); background: var(--mb); margin-bottom: 8px; }
+.tag.breakfast { --mc: #f4d27c; --mb: #3a3320; } .tag.lunch { --mc: #a9bcff; --mb: #272f4d; }
+.tag.dinner { --mc: #cdb9f7; --mb: #31294a; } .tag.snack { --mc: #7ee8cc; --mb: #1c3b34; }
+.meal h3 { margin: 0 0 4px; font-size: 1.05rem; letter-spacing: -.01em; }
+.meal p { margin: 0 0 6px; color: #b4bfbb; font-size: .92rem; line-height: 1.45; }
+.meal .nums { color: #d9e1de; font-size: .9rem; font-variant-numeric: tabular-nums; }
+@keyframes pop { from { opacity: 0; transform: translateY(10px); } }
 
 /* Pass */
-.pass-wrap { display: grid; gap: 28px; align-items: center; }
+.pass-wrap { display: grid; gap: 22px; align-items: center; }
 .pass-scene { perspective: 1000px; }
 .pass {
   position: relative; max-width: 460px; margin: 0 auto; border-radius: 26px; padding: 26px 26px 22px; overflow: hidden;
@@ -278,11 +271,11 @@ fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 .foot { padding: 30px 0 50px; text-align: center; color: var(--dim); font-size: .85rem; }
 
 @media (min-width: 820px) {
-  section { padding: 96px 0; }
+  section { padding: 64px 0; }
   .hero-grid { grid-template-columns: 1.1fr .9fr; }
   .preview { grid-template-columns: 1fr 1.1fr; padding: 36px; }
   .viz { grid-template-columns: 1fr; }
-  .pass-wrap { grid-template-columns: 1fr 1fr; gap: 56px; }
+  .pass-wrap { grid-template-columns: 1fr 1fr; gap: 44px; }
   .form-card { padding: 38px 40px 40px; }
 }
 
@@ -339,7 +332,7 @@ fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
     <div class="rv">
       <p class="eyebrow">Fuel preview</p>
       <h2>See how your day could look.</h2>
-      <p class="lead">Pick a sport and the kind of day you have. Watch the plan adapt.</p>
+      <p class="lead">Pick a sport and the kind of day you have, and watch the sample numbers and meals change.</p>
     </div>
     <div class="preview rv">
       <div>
@@ -351,25 +344,17 @@ fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
           <legend class="ctrl-label">Day type</legend>
           <div class="chips" id="dayChips"></div>
         </fieldset>
-        <p class="disclaimer">Illustrative example only. Not personalized and not medical or dietary advice. Real FuelFlow plans are built around you.</p>
       </div>
-      <div class="viz" aria-live="polite">
-        <div class="rings" role="img" id="ringsImg">
-          <svg viewBox="0 0 120 120" aria-hidden="true">
-            <circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" id="rc" cx="60" cy="60" r="52" stroke="#f59e0b"/>
-            <circle class="bg" cx="60" cy="60" r="39"/><circle class="fg" id="rp" cx="60" cy="60" r="39" stroke="#5eead4"/>
-            <circle class="bg" cx="60" cy="60" r="26"/><circle class="fg" id="rf" cx="60" cy="60" r="26" stroke="#a5b4fc"/>
-          </svg>
-          <div class="rings-center"><b id="kcal">0</b><small>kcal example</small></div>
+      <div class="viz">
+        <p class="example-flag">Example only, not a personal recommendation.</p>
+        <div class="tiles">
+          <div class="tile cal"><small>Calories</small><b id="t-cal">0</b></div>
+          <div class="tile prot"><small>Protein</small><b id="t-prot">0g</b></div>
+          <div class="tile carb"><small>Carbs</small><b id="t-carb">0g</b></div>
+          <div class="tile fat"><small>Fat</small><b id="t-fat">0g</b></div>
         </div>
-        <div class="plate">
-          <div class="legend">
-            <div class="c"><b id="gc">0g</b><small>Carbs</small></div>
-            <div class="p"><b id="gp">0g</b><small>Protein</small></div>
-            <div class="f"><b id="gf">0g</b><small>Fat</small></div>
-          </div>
-          <ul class="meals" id="meals"></ul>
-        </div>
+        <ul class="meals" id="meals"></ul>
+        <p class="sr-only" id="pv-status" role="status"></p>
       </div>
     </div>
   </div>
@@ -522,7 +507,7 @@ fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Ticker
-  var words = ['Pre-game fuel', 'Recovery meals', 'Hydration', 'Tournament days', 'Macro targets', 'Rest-day plans', 'Race week', 'AI nutrition coach'];
+  var words = ['Daily plan', 'Meal ideas', 'Full-week plans', 'Food diary', 'Macro tracking', 'Progress', 'AI nutrition coach'];
   var tk = $('#ticker');
   tk.innerHTML = words.concat(words).map(function (w) { return '<span>' + w + '</span>'; }).join('');
 
@@ -578,19 +563,44 @@ fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
   }
   tilt($('#pass'), '--px', '--py', 12);
 
-  // Fuel preview (illustrative numbers)
+  // Fuel preview (illustrative numbers, not real recommendations)
   var sports = {
-    soccer: { n: 'Soccer', base: 2800, em: ['🍝', '🍌', '🍗'], f: ['Pasta with chicken', 'Banana + honey toast', 'Yogurt + berries'] },
-    basketball: { n: 'Basketball', base: 2700, em: ['🥣', '🍚', '🥪'], f: ['Oats, fruit and eggs', 'Rice bowl with turkey', 'Peanut butter sandwich'] },
-    swimming: { n: 'Swimming', base: 3000, em: ['🥞', '🍝', '🥛'], f: ['Pancakes + fruit', 'Pasta with lean beef', 'Chocolate milk'] },
-    track: { n: 'Track', base: 2600, em: ['🍞', '🍠', '🍌'], f: ['Toast + jam', 'Sweet potato and salmon', 'Banana + pretzels'] },
-    tennis: { n: 'Tennis', base: 2500, em: ['🥣', '🥗', '🍇'], f: ['Granola + yogurt', 'Chicken wrap + salad', 'Grapes + trail mix'] },
-    strength: { n: 'Strength', base: 2900, em: ['🍳', '🍚', '🥩'], f: ['Eggs + oats', 'Rice, steak, veggies', 'Cottage cheese + fruit'] }
+    soccer: { n: 'Soccer', base: 2800, m: [
+      ['Power Oatmeal Bowl', 'Oats cooked with milk, topped with banana, berries and a drizzle of honey.'],
+      ['Chicken Pasta Bowl', 'Whole-wheat pasta with grilled chicken, tomato sauce and spinach.'],
+      ['Salmon Rice Plate', 'Baked salmon over rice with roasted vegetables.'],
+      ['Yogurt Berry Cup', 'Greek yogurt with berries and granola.']] },
+    basketball: { n: 'Basketball', base: 2700, m: [
+      ['Veggie Egg Scramble', 'Scrambled eggs with peppers and spinach, served with whole-grain toast.'],
+      ['Turkey Rice Bowl', 'Sliced turkey over rice with black beans, corn and avocado.'],
+      ['Lean Beef Stir-Fry', 'Beef strips and mixed vegetables over noodles.'],
+      ['Peanut Butter Banana Toast', 'Whole-grain toast with peanut butter and sliced banana.']] },
+    swimming: { n: 'Swimming', base: 3000, m: [
+      ['Banana Pancake Stack', 'Whole-grain pancakes with banana slices and a spoonful of Greek yogurt.'],
+      ['Beef Pasta Bowl', 'Pasta with lean ground beef, tomato sauce and a side salad.'],
+      ['Chicken Sweet Potato Plate', 'Roasted chicken with sweet potato wedges and green beans.'],
+      ['Chocolate Milk Smoothie', 'Chocolate milk blended with banana and oats.']] },
+    track: { n: 'Track', base: 2600, m: [
+      ['Honey Toast and Eggs', 'Whole-grain toast with honey, plus two boiled eggs and fruit.'],
+      ['Chicken Quinoa Salad', 'Grilled chicken over quinoa with greens, tomatoes and olive oil.'],
+      ['Salmon Sweet Potato Teriyaki', 'Pan-seared salmon with roasted sweet potato and broccoli.'],
+      ['Banana and Pretzels', 'A banana with a handful of pretzels and a little peanut butter.']] },
+    tennis: { n: 'Tennis', base: 2500, m: [
+      ['Granola Yogurt Parfait', 'Greek yogurt layered with granola, berries and honey.'],
+      ['Chicken Wrap and Salad', 'Grilled chicken wrap with lettuce, tomato and hummus, plus a side salad.'],
+      ['Turkey Veggie Pasta', 'Pasta with lean turkey, zucchini and tomato sauce.'],
+      ['Grapes and Trail Mix', 'A handful of grapes with nuts and dried fruit.']] },
+    strength: { n: 'Strength', base: 2900, m: [
+      ['Egg and Oat Breakfast', 'Scrambled eggs with oats cooked in milk and a piece of fruit.'],
+      ['Steak Rice Bowl', 'Sliced steak over rice with roasted vegetables.'],
+      ['Chicken Potato Plate', 'Baked chicken thighs with potatoes and steamed broccoli.'],
+      ['Cottage Cheese and Fruit', 'Cottage cheese topped with pineapple and a drizzle of honey.']] }
   };
+  var slots = [['breakfast', 'BREAKFAST', .27], ['lunch', 'LUNCH', .3], ['dinner', 'DINNER', .3], ['snack', 'SNACK', .13]];
   var days = {
-    practice: { n: 'Practice', m: 1, s: [50, 25, 25], t: ['Breakfast', 'Pre-session', 'Recovery'] },
-    game: { n: 'Game day', m: 1.15, s: [58, 22, 20], t: ['Pre-game meal', 'Fuel up', 'Recovery'] },
-    rest: { n: 'Rest day', m: .85, s: [40, 30, 30], t: ['Breakfast', 'Lunch', 'Dinner'] }
+    practice: { n: 'Practice', m: 1, s: [50, 25, 25] },
+    game: { n: 'Game day', m: 1.15, s: [58, 22, 20] },
+    rest: { n: 'Rest day', m: .85, s: [40, 30, 30] }
   };
   var sel = { sport: 'soccer', day: 'practice' };
   function chips(host, data, name, def) {
@@ -602,43 +612,49 @@ fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
   chips($('#sportChips'), sports, 'sport', sel.sport);
   chips($('#dayChips'), days, 'day', sel.day);
 
-  var C = 2 * Math.PI;
-  var rings = { c: [$('#rc'), 52], p: [$('#rp'), 39], f: [$('#rf'), 26] };
-  Object.keys(rings).forEach(function (k) {
-    var el = rings[k][0], len = C * rings[k][1];
-    el.style.strokeDasharray = len; el.style.strokeDashoffset = len;
-  });
-  var shownKcal = 0;
-  function countTo(el, from, to) {
-    if (reduce) { el.textContent = to.toLocaleString(); return; }
+  // Animate a number to a new value; fmt builds the displayed text
+  function tween(el, to, fmt) {
+    var from = el._v || 0; el._v = to;
+    cancelAnimationFrame(el._raf);
+    if (reduce) { el.textContent = fmt(to); return; }
     var t0 = performance.now();
     (function tick(t) {
-      var p = Math.min(1, (t - t0) / 700), v = Math.round(from + (to - from) * (1 - Math.pow(1 - p, 3)));
-      el.textContent = v.toLocaleString();
-      if (p < 1) requestAnimationFrame(tick);
+      var p = Math.min(1, (t - t0) / 700);
+      el.textContent = fmt(Math.round(from + (to - from) * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) el._raf = requestAnimationFrame(tick);
     })(t0);
   }
+  var gFmt = function (v) { return v + 'g'; }, nFmt = function (v) { return v.toLocaleString(); };
+  var mealsEl = $('#meals');
+  mealsEl.innerHTML = slots.map(function (sl) {
+    return '<li class="meal"><span class="tag ' + sl[0] + '">' + sl[1] + '</span><h3></h3><p></p><div class="nums"><span class="k"></span> kcal &bull; <span class="p"></span>g protein</div></li>';
+  }).join('');
+  var mealEls = $$('.meal', mealsEl);
   function render() {
     var s = sports[sel.sport], d = days[sel.day];
     var kcal = Math.round(s.base * d.m / 50) * 50;
-    var g = [Math.round(kcal * d.s[0] / 100 / 4), Math.round(kcal * d.s[1] / 100 / 4), Math.round(kcal * d.s[2] / 100 / 9)];
-    $('#gc').textContent = g[0] + 'g'; $('#gp').textContent = g[1] + 'g'; $('#gf').textContent = g[2] + 'g';
-    var share = [d.s[0], d.s[1], d.s[2]];
-    ['c', 'p', 'f'].forEach(function (k, i) {
-      var len = C * rings[k][1];
-      rings[k][0].style.strokeDashoffset = len * (1 - Math.min(.97, share[i] / 60));
+    var prot = Math.round(kcal * d.s[1] / 100 / 4), carb = Math.round(kcal * d.s[0] / 100 / 4), fat = Math.round(kcal * d.s[2] / 100 / 9);
+    tween($('#t-cal'), kcal, nFmt); tween($('#t-prot'), prot, gFmt); tween($('#t-carb'), carb, gFmt); tween($('#t-fat'), fat, gFmt);
+    mealEls.forEach(function (li, i) {
+      $('h3', li).textContent = s.m[i][0]; $('p', li).textContent = s.m[i][1];
+      tween($('.k', li), Math.round(kcal * slots[i][2] / 5) * 5, String);
+      tween($('.p', li), Math.round(prot * slots[i][2]), String);
+      li.classList.remove('swap'); void li.offsetWidth; li.classList.add('swap');
+      li.style.animationDelay = (i * 0.06) + 's';
     });
-    countTo($('#kcal'), shownKcal, kcal); shownKcal = kcal;
-    $('#ringsImg').setAttribute('aria-label', 'Example ' + s.n + ' ' + d.n.toLowerCase() + ': about ' + kcal + ' calories, ' + g[0] + 'g carbs, ' + g[1] + 'g protein, ' + g[2] + 'g fat. Illustrative only.');
-    $('#meals').innerHTML = d.t.map(function (t, i) {
-      return '<li><span class="em" aria-hidden="true">' + s.em[i] + '</span><div><b>' + s.f[i] + '</b><small>' + t + '</small></div></li>';
-    }).join('');
+    $('#pv-status').textContent = 'Example only. ' + s.n + ', ' + d.n.toLowerCase() + ': about ' + kcal + ' calories, ' + prot + ' grams protein, ' + carb + ' grams carbs, ' + fat + ' grams fat.';
   }
   var pv = $('#preview .preview');
+  render();
   if ('IntersectionObserver' in window) {
-    var po = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { render(); po.disconnect(); } }, { threshold: .25 });
+    var po = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) {
+        $$('.tile b, .meal .k, .meal .p', pv).forEach(function (el) { el._v = 0; });
+        render(); po.disconnect();
+      }
+    }, { threshold: .25 });
     po.observe(pv);
-  } else render();
+  }
 
   // Form
   var ENDPOINT = 'https://sbozyuwhlhqpcieqpyaa.supabase.co/rest/v1/waitlist';
