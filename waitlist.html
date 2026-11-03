@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Join the FuelFlow Early-Access Waitlist | 3 Months Premium Free</title>
+<meta name="description" content="FuelFlow is launching soon on iOS. Join the waitlist before launch and get 3 months of FuelFlow Premium free.">
+<meta name="theme-color" content="#081412">
+<link rel="stylesheet" href="guides.css">
+<style>
+.wl {
+  --ink: #050d0c;
+  --ink-2: #0b1a18;
+  --panel: #10201e;
+  --line: rgba(255, 255, 255, 0.12);
+  --txt: #f3f5f2;
+  --dim: #aebdb9;
+  --teal: #14967f;
+  --teal-d: #0f766e;
+  --mint: #5eead4;
+  --amber: #f59e0b;
+  --err: #ff9b8a;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+body.wl {
+  background: var(--ink);
+  color: var(--txt);
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+.wl h1, .wl h2, .wl h3 {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  border: 0;
+  padding: 0;
+  color: var(--txt);
+}
+.wl h2 { font-size: clamp(1.7rem, 5.5vw, 2.6rem); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 .4em; }
+.wl main a, .wl .foot a { color: var(--mint); }
+.wl main a:hover, .wl .foot a:hover { color: #fff; }
+.wl :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+section { position: relative; padding: 42px 0; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--amber); margin: 0 0 14px;
+}
+.lead { color: var(--dim); font-size: 1.05rem; max-width: 56ch; margin: 0 0 1.4em; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Buttons */
+.btn {
+  appearance: none; border: 0; cursor: pointer; font: inherit; font-weight: 800;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 28px; border-radius: 999px; text-decoration: none;
+  color: #1a1100 !important; background: linear-gradient(135deg, #fbbf24, var(--amber));
+  box-shadow: 0 10px 30px rgba(245, 158, 11, .3);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 14px 40px rgba(245, 158, 11, .45); }
+.btn:active { transform: scale(.98); }
+.btn[disabled] { opacity: .6; cursor: progress; transform: none; }
+.btn-ghost {
+  background: transparent; color: var(--txt) !important; box-shadow: inset 0 0 0 1.5px var(--line);
+}
+.btn-ghost:hover { box-shadow: inset 0 0 0 1.5px var(--mint); }
+
+/* Hero */
+.hero { padding-top: 40px; overflow: hidden; }
+.hero::before, .hero::after {
+  content: ""; position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0;
+}
+.hero::before { width: 420px; height: 420px; background: rgba(20, 150, 127, .45); top: -120px; right: -120px; translate: 0 var(--glow-y, 0px); animation: drift 14s ease-in-out infinite alternate; }
+.hero::after { width: 320px; height: 320px; background: rgba(245, 158, 11, .22); bottom: -100px; left: -100px; animation: drift 11s ease-in-out infinite alternate-reverse; }
+@keyframes drift { to { transform: translate(40px, 30px) scale(1.15); } }
+.hero-grid { position: relative; z-index: 1; display: grid; gap: 40px; align-items: center; }
+.hero h1 {
+  font-size: clamp(2.5rem, 11vw, 4.8rem); line-height: 1; letter-spacing: -0.045em; margin: 0 0 .35em; font-weight: 800;
+}
+.hero h1 .grad {
+  background: linear-gradient(100deg, var(--mint), var(--amber)); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.pill {
+  display: inline-block; padding: 6px 14px; border-radius: 999px; background: rgba(20, 150, 127, .18);
+  border: 1px solid rgba(94, 234, 212, .35); color: var(--mint); font-weight: 700; font-size: .85rem; margin-bottom: 18px;
+}
+.pill .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--mint); margin-right: 8px; animation: pulse 1.8s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(94, 234, 212, .7); } 100% { box-shadow: 0 0 0 10px rgba(94, 234, 212, 0); } }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.hero-stats { display: flex; gap: 22px; margin-top: 28px; color: var(--dim); font-size: .9rem; flex-wrap: wrap; }
+.hero-stats b { display: block; color: var(--txt); font-size: 1.3rem; font-family: "Plus Jakarta Sans", sans-serif; }
+
+/* App screenshot card */
+.stage { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.shot {
+  position: relative; width: min(100%, 380px); height: 420px; border-radius: 26px; overflow: hidden; background: #000;
+  border: 1px solid rgba(255, 255, 255, .16);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .5), 0 0 80px rgba(20, 150, 127, .22);
+  translate: 0 var(--shot-y, 0px); transition: height .6s var(--ease);
+}
+.shot img {
+  position: absolute; top: 0; left: 0; width: 100%; height: auto;
+  opacity: 0; transition: opacity .6s var(--ease);
+}
+.shot img.on { opacity: 1; }
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.tab {
+  appearance: none; font: inherit; cursor: pointer; padding: 10px 16px; min-height: 44px; border-radius: 999px;
+  background: transparent; color: var(--dim); border: 1px solid var(--line); font-weight: 700; font-size: .88rem;
+  position: relative; overflow: hidden; transition: color .2s, border-color .2s, background .2s;
+}
+.tab[aria-selected="true"] { color: #04100e; background: var(--mint); border-color: var(--mint); }
+.tab:hover { color: var(--txt); border-color: var(--mint); }
+.tab[aria-selected="true"]:hover { color: #04100e; }
+
+/* Marquee */
+.ticker { border-block: 1px solid var(--line); background: var(--ink-2); overflow: hidden; padding: 14px 0; }
+.ticker-track { display: flex; width: max-content; gap: 40px; animation: slide 32s linear infinite; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); font-size: .85rem; }
+.ticker-track span::before { content: "⚡"; margin-right: 40px; color: var(--amber); }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* Reveal */
+.rv { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.rv.in { opacity: 1; transform: none; }
+
+/* Fuel preview */
+.preview {
+  display: grid; gap: 28px; padding: 22px; border-radius: 28px; border: 1px solid var(--line);
+  background: radial-gradient(120% 100% at 0% 0%, rgba(20, 150, 127, .2), transparent 60%), var(--panel);
+}
+.ctrl-label { font-size: .8rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin: 0 0 10px; display: block; }
+fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.chip span {
+  display: flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; font-weight: 700; font-size: .92rem;
+  border: 1.5px solid var(--line); color: var(--dim); transition: all .2s var(--ease); background: rgba(255, 255, 255, .02);
+}
+.chip:hover span { border-color: var(--mint); color: var(--txt); }
+.chip input:checked + span { background: var(--mint); border-color: var(--mint); color: #04100e; transform: translateY(-1px); }
+.chip input:focus-visible + span { outline: 3px solid var(--amber); outline-offset: 3px; }
+.viz { display: grid; gap: 14px; align-content: start; }
+.example-flag {
+  display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-radius: 14px; font-weight: 800; font-size: .95rem;
+  color: #ffd98a; background: rgba(245, 158, 11, .14); border: 1.5px solid rgba(245, 158, 11, .6);
+}
+.example-flag::before { content: "!"; flex: none; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--amber); color: #1a1100; font-size: .85rem; }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tile { padding: 14px 16px; border-radius: 22px; background: #1d1f1e; border: 1px solid rgba(255, 255, 255, .09); }
+.tile small { display: block; font-size: .85rem; font-weight: 600; color: var(--tc); }
+.tile b { display: block; font-family: "Plus Jakarta Sans", -apple-system, sans-serif; font-size: 1.55rem; line-height: 1.25; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.tile.cal, .tile.carb { --tc: #a9bcff; } .tile.prot { --tc: #7ee8cc; } .tile.fat { --tc: #f4d27c; }
+.meals { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.meal { margin: 0; padding: 14px 16px; border-radius: 20px; background: #1d1f1e; border: 1px solid rgba(255, 255, 255, .1); }
+.meal.swap { animation: pop .45s var(--ease) both; }
+.tag { display: inline-block; padding: 3px 10px; border-radius: 8px; font-size: .74rem; font-weight: 800; letter-spacing: .1em; color: var(--mc); background: var(--mb); margin-bottom: 8px; }
+.tag.breakfast { --mc: #f4d27c; --mb: #3a3320; } .tag.lunch { --mc: #a9bcff; --mb: #272f4d; }
+.tag.dinner { --mc: #cdb9f7; --mb: #31294a; } .tag.snack { --mc: #7ee8cc; --mb: #1c3b34; }
+.meal h3 { margin: 0 0 4px; font-size: 1.05rem; letter-spacing: -.01em; }
+.meal p { margin: 0 0 6px; color: #b4bfbb; font-size: .92rem; line-height: 1.45; }
+.meal .nums { color: #d9e1de; font-size: .9rem; font-variant-numeric: tabular-nums; }
+@keyframes pop { from { opacity: 0; transform: translateY(10px); } }
+
+/* Pass */
+.pass-wrap { display: grid; gap: 22px; align-items: center; }
+.pass-scene { perspective: 1000px; }
+.pass {
+  position: relative; max-width: 460px; margin: 0 auto; border-radius: 26px; padding: 26px 26px 22px; overflow: hidden;
+  background: linear-gradient(135deg, #0f766e 0%, #0a4d47 55%, #1a2e2b 100%);
+  border: 1px solid rgba(255, 255, 255, .25); box-shadow: 0 30px 70px rgba(0, 0, 0, .55), 0 0 60px rgba(20, 150, 127, .3);
+  translate: 0 var(--pass-y, 0px); rotate: var(--pass-rotate, 0deg);
+  transform: rotateX(var(--px, 0deg)) rotateY(var(--py, 0deg)); transition: transform .2s ease-out;
+}
+.pass::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, .22) 48%, transparent 62%);
+  transform: translateX(-120%); animation: shine 5s ease-in-out infinite 1.2s;
+}
+@keyframes shine { 55%, 100% { transform: translateX(120%); } }
+.pass::after, .pass .notch { content: ""; position: absolute; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); top: 62%; }
+.pass::after { left: -13px; }
+.pass .notch { right: -13px; }
+.pass-top { display: flex; justify-content: space-between; align-items: center; font-weight: 800; letter-spacing: .12em; font-size: .75rem; text-transform: uppercase; }
+.pass-top .star { color: var(--amber); }
+.pass-big { font-family: "Plus Jakarta Sans", sans-serif; font-size: clamp(3.4rem, 16vw, 5rem); line-height: .95; font-weight: 800; letter-spacing: -.05em; margin: 26px 0 4px; }
+.pass-big span { color: var(--amber); }
+.pass-sub { font-size: 1.15rem; font-weight: 700; margin: 0; }
+.pass-cut { border-top: 2px dashed rgba(255, 255, 255, .35); margin: 30px -26px 16px; }
+.pass-foot { display: flex; justify-content: space-between; gap: 12px; font-size: .82rem; color: #d6e6e2; flex-wrap: wrap; }
+.pass-foot b { color: #fff; }
+.perks { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.perks li { margin: 0; display: flex; gap: 12px; color: var(--dim); }
+.perks li::before { content: "✓"; flex: none; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; background: rgba(94, 234, 212, .15); color: var(--mint); font-weight: 800; font-size: .85rem; }
+
+/* Form */
+.form-card {
+  position: relative; max-width: 640px; margin: 0 auto; border-radius: 28px; padding: 26px 22px 28px;
+  background: var(--panel); border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0, 0, 0, .5); overflow: hidden;
+}
+.progress { margin-bottom: 24px; }
+.progress-meta { display: flex; justify-content: space-between; font-size: .82rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+.bar { height: 8px; border-radius: 99px; background: rgba(255, 255, 255, .09); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 33%; border-radius: inherit; background: linear-gradient(90deg, var(--teal), var(--mint), var(--amber)); transition: width .6s var(--ease); }
+.step { display: none; }
+.step.active { display: block; animation: stepin .5s var(--ease) both; }
+@keyframes stepin { from { opacity: 0; transform: translateX(24px); } }
+.step h3 { font-size: 1.5rem; margin: 0 0 4px; letter-spacing: -.02em; }
+.step > p { color: var(--dim); margin: 0 0 20px; }
+.field { margin-bottom: 18px; }
+.field label, .field legend { display: block; font-weight: 700; margin-bottom: 7px; font-size: .95rem; padding: 0; }
+.opt { color: var(--dim); font-weight: 500; }
+.field input[type="text"], .field input[type="email"], .field select, .field textarea {
+  width: 100%; font: inherit; font-size: 1rem; color: var(--txt); background: #081412; min-height: 52px; padding: 12px 16px;
+  border: 1.5px solid rgba(255, 255, 255, .22); border-radius: 14px; transition: border-color .2s, box-shadow .2s;
+}
+.field textarea { min-height: 120px; resize: vertical; }
+.field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--dim) 50%), linear-gradient(135deg, var(--dim) 50%, transparent 50%); background-position: calc(100% - 22px) 50%, calc(100% - 16px) 50%; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 40px; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--mint); box-shadow: 0 0 0 4px rgba(94, 234, 212, .25); }
+.field [aria-invalid="true"] { border-color: var(--err); }
+.err { color: var(--err); font-size: .88rem; font-weight: 600; margin: 6px 0 0; min-height: 0; }
+.err:empty { display: none; }
+.count { text-align: right; font-size: .78rem; color: var(--dim); margin-top: 4px; }
+.roles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.role { position: relative; }
+.role input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.role span {
+  display: flex; align-items: center; justify-content: center; text-align: center; min-height: 54px; padding: 8px 10px; border-radius: 14px;
+  border: 1.5px solid rgba(255, 255, 255, .22); font-weight: 700; background: #081412; transition: all .2s var(--ease);
+}
+.role:hover span { border-color: var(--mint); }
+.role input:checked + span { border-color: var(--mint); background: rgba(94, 234, 212, .14); box-shadow: 0 0 0 3px rgba(94, 234, 212, .2); }
+.role input:focus-visible + span { outline: 3px solid var(--amber); outline-offset: 3px; }
+.role:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.reveal-fields { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--ease); }
+.reveal-fields.open { grid-template-rows: 1fr; }
+.reveal-fields > div { overflow: hidden; min-height: 0; }
+.reveal-fields > div > .inner { padding: 2px 4px 0; }
+.consent { display: flex; gap: 14px; align-items: flex-start; padding: 16px; border-radius: 16px; border: 1.5px solid rgba(255, 255, 255, .22); background: #081412; cursor: pointer; }
+.consent input { flex: none; width: 24px; height: 24px; margin: 2px 0 0; accent-color: var(--teal); cursor: pointer; }
+.consent span { font-size: .95rem; }
+.summary { margin: 0 0 18px; padding: 14px 16px; border-radius: 14px; background: rgba(255, 255, 255, .05); font-size: .92rem; color: var(--dim); }
+.summary b { color: var(--txt); }
+.actions { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+.actions .btn { flex: 1 1 160px; }
+.hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-error { margin-top: 16px; padding: 14px 16px; border-radius: 14px; background: rgba(255, 155, 138, .12); border: 1px solid var(--err); color: #ffd3ca; font-weight: 600; }
+.form-error:empty { display: none; }
+.form-error a { color: #fff; }
+.fine { font-size: .82rem; color: var(--dim); margin: 18px 0 0; text-align: center; }
+.fine-offer { text-align: center; font-size: .9rem; color: var(--dim); margin: 14px auto 0; max-width: 640px; }
+
+/* Success */
+.success { display: none; text-align: center; padding: 20px 0 6px; }
+.success.show { display: block; }
+.wl .success:focus-visible { outline: none; }
+.success .fine { margin-top: 14px; }
+.success h3 { font-size: 2rem; margin: 18px 0 8px; letter-spacing: -.03em; }
+.success p { color: var(--dim); max-width: 42ch; margin: 0 auto 10px; }
+.check { width: 108px; height: 108px; margin: 0 auto; }
+.check circle { fill: none; stroke: var(--mint); stroke-width: 5; stroke-dasharray: 302; stroke-dashoffset: 302; transform: rotate(-90deg); transform-origin: center; }
+.check path { fill: none; stroke: var(--amber); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 60; stroke-dashoffset: 60; }
+.success.show .check circle { animation: draw .8s var(--ease) forwards; }
+.success.show .check path { animation: draw .5s var(--ease) .7s forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.mini-pass { display: inline-block; margin-top: 14px; padding: 12px 22px; border-radius: 16px; background: linear-gradient(135deg, var(--teal-d), #0a4d47); border: 1px dashed rgba(255, 255, 255, .5); font-weight: 800; animation: pop .7s var(--ease) 1s both; }
+.mini-pass span { color: var(--amber); }
+.confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.confetti i { position: absolute; top: 30%; left: 50%; width: 9px; height: 14px; border-radius: 2px; opacity: 0; animation: burst 1.6s var(--ease) forwards; }
+@keyframes burst { 0% { opacity: 1; transform: translate(0, 0) rotate(0); } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); } }
+
+.foot { padding: 30px 0 50px; text-align: center; color: var(--dim); font-size: .85rem; }
+
+@media (min-width: 820px) {
+  section { padding: 64px 0; }
+  .hero-grid { grid-template-columns: 1.1fr .9fr; }
+  .preview { grid-template-columns: 1fr 1.1fr; padding: 36px; align-items: start; }
+  .pickers { position: sticky; top: 96px; }
+  .viz { grid-template-columns: 1fr; }
+  .pass-wrap { grid-template-columns: 1fr 1fr; gap: 44px; }
+  .form-card { padding: 38px 40px 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wl *, .wl *::before, .wl *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .rv { opacity: 1; transform: none; }
+  .hero::before, .shot, .pass { translate: none; rotate: none; }
+  .check circle, .check path { stroke-dashoffset: 0; }
+  .ticker-track { transform: none; }
+}
+</style>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+</head>
+<body class="wl">
+<header class="site-header"><div class="site-header-inner"><a class="site-brand" href="index.html">FuelFlow</a><nav class="site-nav" aria-label="Main"><a href="guides.html">Guides</a><a href="calculator.html">Calculator</a><a href="about.html">About</a><a href="support.html">Support</a></nav></div></header>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="pill"><span class="dot" aria-hidden="true"></span>Early access &middot; Launching soon on iOS</p>
+      <h1>Fuel like <span class="grad">you train.</span></h1>
+      <p class="lead">FuelFlow turns your sport, schedule and goals into a clear daily nutrition plan, so athletes always know what to eat, when. Join the waitlist and get <strong style="color:#fff">3 months of Premium free</strong>.</p>
+      <div class="cta-row">
+        <a class="btn" href="#join">Claim my free 3 months</a>
+        <a class="btn btn-ghost" href="#preview">Try the fuel preview</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>3 months</b>Premium free</div>
+        <div><b>iOS</b>coming soon</div>
+        <div><b>Built for</b>athletes &amp; coaches</div>
+      </div>
+    </div>
+    <div class="stage" id="stage">
+      <div class="shot" id="shot">
+          <img class="on" src="images/today.png" width="900" height="1266" alt="FuelFlow Today screen showing a daily plan, calories and macros" fetchpriority="high">
+          <img src="images/plans.png" width="900" height="1607" alt="FuelFlow Plans screen with meal plans" loading="lazy">
+          <img src="images/food.png" width="900" height="1057" alt="FuelFlow Food diary screen" loading="lazy">
+          <img src="images/coach.png" width="900" height="1539" alt="FuelFlow AI nutrition coach screen" loading="lazy">
+      </div>
+      <div class="tabs" role="tablist" aria-label="App screens" id="tabs">
+        <button class="tab" role="tab" aria-selected="true" type="button">Today</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" tabindex="-1">Plans</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" tabindex="-1">Food</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" tabindex="-1">Coach</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+<section id="preview">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow">Fuel preview</p>
+      <h2>See how your day could look.</h2>
+      <p class="lead">Pick a sport and the kind of day you have, and watch the sample numbers and meals change.</p>
+    </div>
+    <div class="preview">
+      <div class="pickers">
+        <fieldset>
+          <legend class="ctrl-label">Your sport</legend>
+          <div class="chips" id="sportChips"></div>
+        </fieldset>
+        <fieldset>
+          <legend class="ctrl-label">Day type</legend>
+          <div class="chips" id="dayChips"></div>
+        </fieldset>
+      </div>
+      <div class="viz">
+        <p class="example-flag">Example only, not a personal recommendation.</p>
+        <div class="tiles">
+          <div class="tile cal"><small>Calories</small><b id="t-cal">0</b></div>
+          <div class="tile prot"><small>Protein</small><b id="t-prot">0g</b></div>
+          <div class="tile carb"><small>Carbs</small><b id="t-carb">0g</b></div>
+          <div class="tile fat"><small>Fat</small><b id="t-fat">0g</b></div>
+        </div>
+        <ul class="meals" id="meals"></ul>
+        <p class="sr-only" id="pv-status" role="status"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap pass-wrap">
+    <div class="pass-scene rv">
+      <div class="pass" id="pass">
+        <span class="notch"></span>
+        <div class="pass-top"><span>FuelFlow</span><span><span class="star">&#9733;</span> Founding member</span></div>
+        <div class="pass-big"><span>3</span> months</div>
+        <p class="pass-sub">of FuelFlow Premium, free.</p>
+        <div class="pass-cut"></div>
+        <div class="pass-foot"><span><b>Admit one</b> &middot; one per person</span><span>Join before launch</span></div>
+      </div>
+    </div>
+    <div class="rv">
+      <p class="eyebrow">Founding member offer</p>
+      <h2>Be early. Get Premium on us.</h2>
+      <p class="lead">Everyone who joins before launch gets 3 months of FuelFlow Premium free.</p>
+      <ul class="perks">
+        <li>3 months of FuelFlow Premium, free</li>
+        <li>Your code arrives by email the day the app goes live</li>
+        <li>Coaches and clubs: tell us what would help your athletes most</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap">
+    <div class="rv" style="text-align:center">
+      <p class="eyebrow">Join the waitlist</p>
+      <h2>Lock in your 3 free months.</h2>
+      <p class="lead" style="margin-inline:auto">Takes under a minute. Three quick steps.</p>
+    </div>
+    <div class="form-card" id="card">
+      <form id="form" novalidate autocomplete="on">
+        <div class="progress" id="progress">
+          <div class="progress-meta"><span id="stepName">About you</span><span id="stepNum">Step 1 of 3</span></div>
+          <div class="bar" role="progressbar" aria-label="Form progress" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1"><i id="barFill"></i></div>
+        </div>
+
+        <div class="step active" data-step="1" data-name="About you">
+          <h3>Let's get you on the list</h3>
+          <p>Who should we send your code to?</p>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" maxlength="100" autocomplete="name" required aria-describedby="name-err">
+            <p class="err" id="name-err" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" maxlength="254" autocomplete="email" inputmode="email" required aria-describedby="email-err">
+            <p class="err" id="email-err" role="alert"></p>
+          </div>
+          <fieldset class="field" aria-describedby="role-err">
+            <legend>I am a&hellip;</legend>
+            <div class="roles">
+              <label class="role"><input type="radio" name="role" value="athlete"><span>Athlete</span></label>
+              <label class="role"><input type="radio" name="role" value="coach"><span>Coach</span></label>
+              <label class="role"><input type="radio" name="role" value="club_staff"><span>Club staff</span></label>
+              <label class="role"><input type="radio" name="role" value="parent"><span>Parent</span></label>
+              <label class="role"><input type="radio" name="role" value="other"><span>Other</span></label>
+            </div>
+            <p class="err" id="role-err" role="alert"></p>
+          </fieldset>
+          <div class="actions"><button class="btn" type="button" data-next>Continue &rarr;</button></div>
+        </div>
+
+        <div class="step" data-step="2" data-name="Your sport">
+          <h3>Tell us about your game</h3>
+          <p>All optional. It helps us build the right thing.</p>
+          <div class="reveal-fields" id="orgFields">
+            <div><div class="inner">
+              <div class="field">
+                <label for="organization">Organization <span class="opt">(optional)</span></label>
+                <input type="text" id="organization" name="organization" maxlength="150" autocomplete="organization" tabindex="-1">
+              </div>
+              <div class="field">
+                <label for="athlete_count">How many athletes? <span class="opt">(optional)</span></label>
+                <select id="athlete_count" name="athlete_count" tabindex="-1">
+                  <option value="">Select&hellip;</option>
+                  <option>1-10</option><option>11-25</option><option>26-50</option><option>51-100</option><option>100+</option>
+                </select>
+              </div>
+            </div></div>
+          </div>
+          <div class="field">
+            <label for="sports">Sports <span class="opt">(optional)</span></label>
+            <input type="text" id="sports" name="sports" maxlength="200" placeholder="e.g. soccer, swimming">
+          </div>
+          <div class="field">
+            <label for="wants">What would help your athletes most? <span class="opt">(optional)</span></label>
+            <textarea id="wants" name="wants" maxlength="1000" aria-describedby="wants-count"></textarea>
+            <div class="count" id="wants-count">0 / 1000</div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-ghost" type="button" data-back>&larr; Back</button>
+            <button class="btn" type="button" data-next>Continue &rarr;</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="3" data-name="Confirm">
+          <h3>Almost there</h3>
+          <p>One last thing, then your pass is reserved.</p>
+          <p class="summary" id="summary"></p>
+          <div class="hp" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="field">
+            <label class="consent" for="consent">
+              <input type="checkbox" id="consent" name="consent" required aria-describedby="consent-err">
+              <span>I'm 13 or older and I'm happy for FuelFlow to email me about the launch.</span>
+            </label>
+            <p class="err" id="consent-err" role="alert"></p>
+          </div>
+          <div class="actions">
+            <button class="btn btn-ghost" type="button" data-back>&larr; Back</button>
+            <button class="btn" type="submit" id="submitBtn">Reserve my 3 free months</button>
+          </div>
+          <div class="form-error" id="formError" role="alert"></div>
+          <p class="fine">We'll email your code when the app is live. One per person. See our <a href="privacy-policy.html">privacy policy</a>.</p>
+        </div>
+      </form>
+
+      <div class="success" id="success" role="status" tabindex="-1">
+        <div class="confetti" id="confetti" aria-hidden="true"></div>
+        <svg class="check" viewBox="0 0 108 108" aria-hidden="true"><circle cx="54" cy="54" r="48"/><path d="M33 56l15 15 28-31"/></svg>
+        <h3 id="successTitle">You're in!</h3>
+        <p id="successMsg">Your 3 months of Premium are reserved.</p>
+        <div class="mini-pass"><span>&#9733;</span> Founding member &middot; 3 months Premium</div>
+        <p class="fine">We'll email your code when the app is live. One per person.</p>
+      </div>
+    </div>
+    <p class="fine-offer">Everyone who joins before launch gets 3 months of FuelFlow Premium free.</p>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">&copy; FuelFlow &middot; <a href="privacy-policy.html">Privacy policy</a> &middot; <a href="mailto:fuelflow.support@gmail.com">fuelflow.support@gmail.com</a></div></footer>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Ticker
+  var words = ['Daily plan', 'Meal ideas', 'Full-week plans', 'Food diary', 'Macro tracking', 'Progress', 'AI nutrition coach'];
+  var tk = $('#ticker');
+  tk.innerHTML = words.concat(words).map(function (w) { return '<span>' + w + '</span>'; }).join('');
+
+  // Scroll reveal
+  var rv = $$('.rv');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    rv.forEach(function (el) { io.observe(el); });
+  } else { rv.forEach(function (el) { el.classList.add('in'); }); }
+
+  // Scroll parallax
+  if (!reduce) {
+    var hero = $('.hero'), shot = $('#shot'), pass = $('#pass'), passScene = $('.pass-scene');
+    var motionFrame = 0, parallaxScale = window.innerWidth < 820 ? .5 : 1;
+    var requestMotionFrame = window.requestAnimationFrame || function (fn) { return window.setTimeout(fn, 16); };
+    function updateScrollMotion() {
+      motionFrame = 0;
+      var scrollY = window.scrollY || window.pageYOffset || 0;
+      hero.style.setProperty('--glow-y', Math.max(-24 * parallaxScale, -scrollY * .06 * parallaxScale) + 'px');
+      shot.style.setProperty('--shot-y', Math.max(-16 * parallaxScale, -scrollY * .04 * parallaxScale) + 'px');
+      var r = passScene.getBoundingClientRect();
+      var progress = Math.max(0, Math.min(1, (window.innerHeight - r.top) / (window.innerHeight + r.height)));
+      var depth = Math.sin(progress * Math.PI);
+      pass.style.setProperty('--pass-y', (-10 * parallaxScale * depth) + 'px');
+      pass.style.setProperty('--pass-rotate', (1.2 * parallaxScale * depth) + 'deg');
+    }
+    function scheduleScrollMotion() {
+      if (!motionFrame) motionFrame = requestMotionFrame(updateScrollMotion);
+    }
+    window.addEventListener('scroll', scheduleScrollMotion, { passive: true });
+    window.addEventListener('resize', function () {
+      parallaxScale = window.innerWidth < 820 ? .5 : 1;
+      scheduleScrollMotion();
+    });
+    updateScrollMotion();
+  }
+
+  // Phone screens
+  var shot = $('#shot'), imgs = $$('#shot img'), tabs = $$('#tabs .tab'), cur = 0, timer = null, paused = false;
+  function fit() { shot.style.height = imgs[cur].offsetHeight + 'px'; }
+  function show(i, focus) {
+    cur = i; fit();
+    imgs.forEach(function (im, k) { im.classList.toggle('on', k === i); });
+    tabs.forEach(function (t, k) { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; });
+    if (focus) tabs[i].focus();
+  }
+  function start() { if (reduce || timer) return; timer = setInterval(function () { if (!paused) show((cur + 1) % imgs.length); }, 3600); }
+  function stop() { clearInterval(timer); timer = null; }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(i); stop(); });
+    t.addEventListener('keydown', function (e) {
+      var n = null;
+      if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') n = (i + tabs.length - 1) % tabs.length;
+      else if (e.key === 'Home') n = 0; else if (e.key === 'End') n = tabs.length - 1;
+      if (n !== null) { e.preventDefault(); show(n, true); stop(); }
+    });
+  });
+  var stage = $('#stage');
+  stage.addEventListener('mouseenter', function () { paused = true; });
+  stage.addEventListener('mouseleave', function () { paused = false; });
+  stage.addEventListener('focusin', function () { paused = true; });
+  stage.addEventListener('focusout', function () { paused = false; });
+  window.addEventListener('resize', fit);
+  imgs.forEach(function (im) { im.addEventListener('load', fit); });
+  fit(); start();
+
+  // Pointer tilt (phone + pass)
+  function tilt(el, vx, vy, max) {
+    if (reduce) return;
+    el.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') return;
+      var r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      el.style.setProperty(vy, (x * max).toFixed(1) + 'deg');
+      el.style.setProperty(vx, (-y * max).toFixed(1) + 'deg');
+    });
+    el.addEventListener('pointerleave', function () { el.style.removeProperty(vx); el.style.removeProperty(vy); });
+  }
+  tilt($('#pass'), '--px', '--py', 12);
+
+  // Fuel preview (illustrative numbers, not real recommendations)
+  var sports = {
+    soccer: { n: 'Soccer', base: 2800, m: [
+      ['Power Oatmeal Bowl', 'Oats cooked with milk, topped with banana, berries and a drizzle of honey.'],
+      ['Chicken Pasta Bowl', 'Whole-wheat pasta with grilled chicken, tomato sauce and spinach.'],
+      ['Salmon Rice Plate', 'Baked salmon over rice with roasted vegetables.'],
+      ['Yogurt Berry Cup', 'Greek yogurt with berries and granola.']] },
+    basketball: { n: 'Basketball', base: 2700, m: [
+      ['Veggie Egg Scramble', 'Scrambled eggs with peppers and spinach, served with whole-grain toast.'],
+      ['Turkey Rice Bowl', 'Sliced turkey over rice with black beans, corn and avocado.'],
+      ['Lean Beef Stir-Fry', 'Beef strips and mixed vegetables over noodles.'],
+      ['Peanut Butter Banana Toast', 'Whole-grain toast with peanut butter and sliced banana.']] },
+    swimming: { n: 'Swimming', base: 3000, m: [
+      ['Banana Pancake Stack', 'Whole-grain pancakes with banana slices and a spoonful of Greek yogurt.'],
+      ['Beef Pasta Bowl', 'Pasta with lean ground beef, tomato sauce and a side salad.'],
+      ['Chicken Sweet Potato Plate', 'Roasted chicken with sweet potato wedges and green beans.'],
+      ['Chocolate Milk Smoothie', 'Chocolate milk blended with banana and oats.']] },
+    track: { n: 'Track', base: 2600, m: [
+      ['Honey Toast and Eggs', 'Whole-grain toast with honey, plus two boiled eggs and fruit.'],
+      ['Chicken Quinoa Salad', 'Grilled chicken over quinoa with greens, tomatoes and olive oil.'],
+      ['Salmon Sweet Potato Teriyaki', 'Pan-seared salmon with roasted sweet potato and broccoli.'],
+      ['Banana and Pretzels', 'A banana with a handful of pretzels and a little peanut butter.']] },
+    tennis: { n: 'Tennis', base: 2500, m: [
+      ['Granola Yogurt Parfait', 'Greek yogurt layered with granola, berries and honey.'],
+      ['Chicken Wrap and Salad', 'Grilled chicken wrap with lettuce, tomato and hummus, plus a side salad.'],
+      ['Turkey Veggie Pasta', 'Pasta with lean turkey, zucchini and tomato sauce.'],
+      ['Grapes and Trail Mix', 'A handful of grapes with nuts and dried fruit.']] },
+    strength: { n: 'Strength', base: 2900, m: [
+      ['Egg and Oat Breakfast', 'Scrambled eggs with oats cooked in milk and a piece of fruit.'],
+      ['Steak Rice Bowl', 'Sliced steak over rice with roasted vegetables.'],
+      ['Chicken Potato Plate', 'Baked chicken thighs with potatoes and steamed broccoli.'],
+      ['Cottage Cheese and Fruit', 'Cottage cheese topped with pineapple and a drizzle of honey.']] }
+  };
+  var slots = [['breakfast', 'BREAKFAST', .27], ['lunch', 'LUNCH', .3], ['dinner', 'DINNER', .3], ['snack', 'SNACK', .13]];
+  var days = {
+    practice: { n: 'Practice', m: 1, s: [50, 25, 25] },
+    game: { n: 'Game day', m: 1.15, s: [58, 22, 20] },
+    rest: { n: 'Rest day', m: .85, s: [40, 30, 30] }
+  };
+  var sel = { sport: 'soccer', day: 'practice' };
+  function chips(host, data, name, def) {
+    host.innerHTML = Object.keys(data).map(function (k) {
+      return '<label class="chip"><input type="radio" name="' + name + '" value="' + k + '"' + (k === def ? ' checked' : '') + '><span>' + data[k].n + '</span></label>';
+    }).join('');
+    host.addEventListener('change', function (e) { sel[name] = e.target.value; render(); });
+  }
+  chips($('#sportChips'), sports, 'sport', sel.sport);
+  chips($('#dayChips'), days, 'day', sel.day);
+
+  // Animate a number to a new value; fmt builds the displayed text
+  function tween(el, to, fmt) {
+    var from = el._v || 0; el._v = to;
+    cancelAnimationFrame(el._raf);
+    if (reduce) { el.textContent = fmt(to); return; }
+    var t0 = performance.now();
+    (function tick(t) {
+      var p = Math.min(1, (t - t0) / 700);
+      el.textContent = fmt(Math.round(from + (to - from) * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) el._raf = requestAnimationFrame(tick);
+    })(t0);
+  }
+  var gFmt = function (v) { return v + 'g'; }, nFmt = function (v) { return v.toLocaleString(); };
+  var mealsEl = $('#meals');
+  mealsEl.innerHTML = slots.map(function (sl) {
+    return '<li class="meal"><span class="tag ' + sl[0] + '">' + sl[1] + '</span><h3></h3><p></p><div class="nums"><span class="k"></span> kcal &bull; <span class="p"></span>g protein</div></li>';
+  }).join('');
+  var mealEls = $$('.meal', mealsEl);
+  function render() {
+    var s = sports[sel.sport], d = days[sel.day];
+    var kcal = Math.round(s.base * d.m / 50) * 50;
+    var prot = Math.round(kcal * d.s[1] / 100 / 4), carb = Math.round(kcal * d.s[0] / 100 / 4), fat = Math.round(kcal * d.s[2] / 100 / 9);
+    tween($('#t-cal'), kcal, nFmt); tween($('#t-prot'), prot, gFmt); tween($('#t-carb'), carb, gFmt); tween($('#t-fat'), fat, gFmt);
+    mealEls.forEach(function (li, i) {
+      $('h3', li).textContent = s.m[i][0]; $('p', li).textContent = s.m[i][1];
+      tween($('.k', li), Math.round(kcal * slots[i][2] / 5) * 5, String);
+      tween($('.p', li), Math.round(prot * slots[i][2]), String);
+      li.classList.remove('swap'); void li.offsetWidth; li.classList.add('swap');
+      li.style.animationDelay = (i * 0.06) + 's';
+    });
+    $('#pv-status').textContent = 'Example only. ' + s.n + ', ' + d.n.toLowerCase() + ': about ' + kcal + ' calories, ' + prot + ' grams protein, ' + carb + ' grams carbs, ' + fat + ' grams fat.';
+  }
+  var pv = $('#preview .preview');
+  render();
+  if ('IntersectionObserver' in window) {
+    var po = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) {
+        $$('.tile b, .meal .k, .meal .p', pv).forEach(function (el) { el._v = 0; });
+        render(); po.disconnect();
+      }
+    }, { threshold: .25 });
+    po.observe(pv);
+  }
+
+  // Form
+  var ENDPOINT = 'https://sbozyuwhlhqpcieqpyaa.supabase.co/rest/v1/waitlist';
+  var KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNib3p5dXdobGhxcGNpZXFweWFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ5NTU5NDksImV4cCI6MjEwMDUzMTk0OX0.O2pW_ktr3nQ5141p6aqp6Sz_szRbOVRbNOai8GkwXmY';
+  var form = $('#form'), steps = $$('.step'), step = 1, busy = false;
+  var ROLES_WITH_ORG = ['coach', 'club_staff'];
+  function role() { var r = $('input[name="role"]:checked'); return r ? r.value : ''; }
+  function setErr(id, msg) {
+    var p = $('#' + id + '-err'), inp = $('#' + id);
+    p.textContent = msg || '';
+    if (inp) { if (msg) inp.setAttribute('aria-invalid', 'true'); else inp.removeAttribute('aria-invalid'); }
+  }
+  function goTo(n, focusFirst) {
+    step = n;
+    steps.forEach(function (s) { s.classList.toggle('active', +s.dataset.step === n); });
+    var s = steps[n - 1];
+    $('#barFill').style.width = (n / 3 * 100) + '%';
+    $('#stepName').textContent = s.dataset.name;
+    $('#stepNum').textContent = 'Step ' + n + ' of 3';
+    $('.bar').setAttribute('aria-valuenow', n);
+    if (n === 3) {
+      var r = $('input[name="role"]:checked');
+      $('#summary').innerHTML = '<b></b> &middot; <span></span>';
+      $('#summary b').textContent = $('#name').value.trim();
+      $('#summary span').textContent = $('#email').value.trim();
+    }
+    if (focusFirst) {
+      var h = $('h3', s); h.tabIndex = -1; h.focus({ preventScroll: true });
+      var top = $('#card').getBoundingClientRect().top;
+      if (top < 0 || top > 200) $('#card').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    }
+  }
+  function validate(n) {
+    var ok = true, first = null;
+    function bad(id, m) { setErr(id, m); ok = false; if (!first) first = $('#' + id); }
+    if (n === 1) {
+      var nm = $('#name').value.trim(), em = $('#email').value.trim();
+      if (!nm) bad('name', 'Please enter your name.'); else if (nm.length > 100) bad('name', 'Name must be 100 characters or fewer.'); else setErr('name');
+      if (!em) bad('email', 'Please enter your email.');
+      else if (em.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) bad('email', 'Please enter a valid email address.');
+      else setErr('email');
+      if (!role()) { $('#role-err').textContent = 'Please choose the option that fits you best.'; ok = false; if (!first) first = $('input[name="role"]'); }
+      else $('#role-err').textContent = '';
+    }
+    if (n === 3) {
+      if (!$('#consent').checked) bad('consent', 'Please tick the box to join the waitlist.'); else setErr('consent');
+    }
+    if (first) first.focus();
+    return ok;
+  }
+  function syncOrg() {
+    var open = ROLES_WITH_ORG.indexOf(role()) > -1;
+    $('#orgFields').classList.toggle('open', open);
+    $$('#orgFields input, #orgFields select').forEach(function (el) { el.tabIndex = open ? 0 : -1; });
+    $('#orgFields').setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  $$('input[name="role"]').forEach(function (r) { r.addEventListener('change', function () { $('#role-err').textContent = ''; syncOrg(); }); });
+  syncOrg();
+  ['name', 'email'].forEach(function (id) { $('#' + id).addEventListener('input', function () { setErr(id); }); });
+  $('#consent').addEventListener('change', function () { setErr('consent'); });
+  $('#wants').addEventListener('input', function () { $('#wants-count').textContent = this.value.length + ' / 1000'; });
+  $$('[data-next]').forEach(function (b) { b.addEventListener('click', function () { if (validate(step)) goTo(step + 1, true); }); });
+  $$('[data-back]').forEach(function (b) { b.addEventListener('click', function () { goTo(step - 1, true); }); });
+  // Enter advances instead of submitting early
+  form.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && step < 3 && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'BUTTON') {
+      e.preventDefault(); if (validate(step)) goTo(step + 1, true);
+    }
+  });
+
+  function source() {
+    var r = (new URLSearchParams(location.search).get('ref') || '').toLowerCase();
+    return /^[a-z0-9_-]{1,50}$/.test(r) ? r : 'website';
+  }
+  function val(id) { var v = $('#' + id).value.trim(); return v ? v : null; }
+  function confetti() {
+    if (reduce) return;
+    var host = $('#confetti'), cols = ['#f59e0b', '#5eead4', '#14967f', '#ffffff', '#a5b4fc'], h = '';
+    for (var i = 0; i < 46; i++) {
+      var a = Math.random() * Math.PI * 2, d = 120 + Math.random() * 220;
+      h += '<i style="background:' + cols[i % cols.length] + ';--dx:' + (Math.cos(a) * d).toFixed(0) + 'px;--dy:' + (Math.sin(a) * d - 40).toFixed(0) + 'px;--rot:' + (Math.random() * 720 - 360).toFixed(0) + 'deg;animation-delay:' + (Math.random() * .25).toFixed(2) + 's"></i>';
+    }
+    host.innerHTML = h;
+  }
+  function done(already) {
+    form.style.display = 'none';
+    $('#successTitle').textContent = already ? 'You\u2019re already in!' : 'You\u2019re in!';
+    $('#successMsg').textContent = already
+      ? 'That email is already on the waitlist, so your 3 months of Premium are already reserved.'
+      : 'Your 3 months of Premium are reserved. Keep an eye on your inbox at launch.';
+    var s = $('#success'); s.classList.add('show');
+    if (!already) confetti();
+    s.focus({ preventScroll: true });
+    $('#card').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (busy) return;
+    if (!validate(1)) { goTo(1, true); return; }
+    if (!validate(3)) return;
+    if ($('#website').value) { done(false); return; }
+    var r = role(), org = ROLES_WITH_ORG.indexOf(r) > -1;
+    var body = {
+      name: $('#name').value.trim(),
+      email: $('#email').value.trim(),
+      role: r,
+      organization: org ? val('organization') : null,
+      athlete_count: org ? ($('#athlete_count').value || null) : null,
+      sports: val('sports'),
+      wants: val('wants'),
+      source: source()
+    };
+    busy = true;
+    var btn = $('#submitBtn'), label = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Reserving\u2026';
+    $('#formError').textContent = '';
+    var ctl = 'AbortController' in window ? new AbortController() : null;
+    var to = setTimeout(function () { if (ctl) ctl.abort(); }, 15000);
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+      body: JSON.stringify(body),
+      signal: ctl ? ctl.signal : undefined
+    }).then(function (res) {
+      if (res.status === 201) done(false);
+      else if (res.status === 409) done(true);
+      else throw new Error('status ' + res.status);
+    }).catch(function () {
+      var fe = $('#formError');
+      fe.innerHTML = 'Sorry, something went wrong and we couldn\u2019t add you just now. Please try again in a moment, or email <a href="mailto:fuelflow.support@gmail.com">fuelflow.support@gmail.com</a> and we\u2019ll add you manually.';
+    }).then(function () {
+      clearTimeout(to); busy = false; btn.disabled = false; btn.textContent = label;
+    });
+  });
+})();
+</script>
+</body>
+</html>
